@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.API
 {
-    internal class ICatalog
+    public interface ICatalog
     {
     }
 }

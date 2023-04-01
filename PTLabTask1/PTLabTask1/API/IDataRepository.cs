@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.API
 {
-    internal class IdataRepository
+    public abstract class IDataRepository
     {
     }
 }
