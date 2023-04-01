@@ -1,6 +1,6 @@
 ﻿namespace Data.API
 {
-    public interface ISupply : IState
+    public interface ISupply : IEvent
     {
 
     }

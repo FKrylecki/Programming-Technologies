@@ -1,6 +1,6 @@
 ﻿namespace Data.API
 {
-    public interface ISell : IState
+    public interface ISell : IEvent
     {
 
     }
