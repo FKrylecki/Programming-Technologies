@@ -1,4 +1,4 @@
-﻿namespace PTLabTask1
+﻿namespace Data.API
 {
     public class Class1
     {
