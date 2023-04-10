@@ -8,7 +8,7 @@ namespace Data.API
         public abstract void AddCatalog(ICatalog c);
         public abstract void RemoveCatalog(string id);
         public abstract ICatalog GetCatalog(string id);
-        public abstract IEnumerable<ICatalog> GetAllCatalogs();
+        public abstract IEnumerable<ICatalog> GetCatalogsList();
 
         //---------------------------------------------------
         public abstract void AddUser(IUser u);
@@ -20,7 +20,7 @@ namespace Data.API
         public abstract void AddState(IState s);
         public abstract void RemoveState(string id);
         public abstract IState GetState(string id);
-        public abstract IEnumerable<IState> GetAllStates();
+        public abstract IEnumerable<IState> GetStatesList();
 
         //---------------------------------------------------
         public abstract void AddEvent(IEvent e);

@@ -2,26 +2,46 @@
 
 namespace Data.CodeImplementation
 {
-    internal class DataPepository : IDataRepository
+    internal class DataRepository : IDataRepository
     {
         private DataContext data;
 
         public override void AddCatalog(ICatalog c) { 
-
+            data.dictionary.Add(c.Id, c);
         }
         public override void RemoveCatalog(string id) { 
+            data.dictionary.Remove(id);
         }
-        public override ICatalog GetCatalog(string id) { 
+        public override ICatalog GetCatalog(string id) {
+            return data.dictionary[id];
         }
-        public override IEnumerable<ICatalog> GetAllCatalogs() { 
+        public override IEnumerable<ICatalog> GetCatalogsList() {
+            return data.dictionary.Values;
+            //returns collection contained in dictionary
         }
         //---------------------------------------------------
 
         public override void AddUser(IUser u) { 
+            data.users.Add(u);
         }
-        public override void RemoveUser(string id) { 
+        public override void RemoveUser(string id) {
+            for (int i = 0; i < data.users.Count; i++)
+            {
+                if (data.users[i].Id == id)
+                {
+                    data.users.RemoveAt(i);
+                }
+            }
         }
         public override IUser GetUser(string id) { 
+            for (int i = 0;i < data.users.Count; i++)
+            {
+                if (data.users[i].Id == id) 
+                { 
+                    return data.users[i]; 
+                }
+                throw new Exception("Could not find a User.");
+            }
         }
         public override IEnumerable<IUser> GetUsersList() { 
         }
@@ -33,7 +53,7 @@ namespace Data.CodeImplementation
         }
         public override IState GetState(string id) { 
         }
-        public override IEnumerable<IState> GetAllStates() { 
+        public override IEnumerable<IState> GetStatesList() { 
         }
 
         //---------------------------------------------------
