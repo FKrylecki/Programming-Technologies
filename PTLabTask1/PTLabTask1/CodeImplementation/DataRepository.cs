@@ -84,6 +84,8 @@ namespace Data.CodeImplementation
                 }
         }
 
-        public override IEnumerable<IEvent> GetEventsList();
+        public override IEnumerable<IEvent> GetEventsList() {
+            return data.events;
+        }
     }
 }
