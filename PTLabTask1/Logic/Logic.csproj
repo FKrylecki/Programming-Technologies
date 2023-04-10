@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PTLabTask1\Data.csproj" />
+  </ItemGroup>
+
 </Project>
