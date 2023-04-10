@@ -40,10 +40,11 @@ namespace Data.CodeImplementation
                 { 
                     return data.users[i]; 
                 }
-                throw new Exception("Could not find a User.");
             }
+            throw new Exception("Could not find a User.");
         }
-        public override IEnumerable<IUser> GetUsersList() { 
+        public override IEnumerable<IUser> GetUsersList() {
+            return data.users;
         }
 
         //---------------------------------------------------
