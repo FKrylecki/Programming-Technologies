@@ -18,7 +18,7 @@ namespace Data.API
 
         //---------------------------------------------------
         public abstract void AddState(IState s);
-        public abstract void RemoveState(string id);
+        public abstract void RemoveState(IState s);
         public abstract IState GetState(string id);
         public abstract IEnumerable<IState> GetStatesList();
 

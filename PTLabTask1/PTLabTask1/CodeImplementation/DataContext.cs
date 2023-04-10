@@ -8,5 +8,6 @@ namespace Data.CodeImplementation
         internal List<IState> states = new();
         internal List<IUser> users = new();
         internal Dictionary<string, ICatalog> dictionary = new();
+
     }
 }

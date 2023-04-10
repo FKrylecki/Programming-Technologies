@@ -48,13 +48,24 @@ namespace Data.CodeImplementation
         }
 
         //---------------------------------------------------
-        public override void AddState(IState s) { 
+        public override void AddState(IState s) {
+            data.states.Add(s);
         }
-        public override void RemoveState(string id) { 
+        public override void RemoveState(IState s) {
+            data.states.Remove(s);
         }
-        public override IState GetState(string id) { 
+        public override IState GetState(string id) {
+            for (int i = 0; i < data.states.Count; i++)
+            {
+                if (data.states[i].StateId == id)
+                {
+                    return data.states[i];
+                }
+            }
+            throw new Exception("Could not find a User.");
         }
-        public override IEnumerable<IState> GetStatesList() { 
+        public override IEnumerable<IState> GetStatesList() {
+            return data.states;
         }
 
         //---------------------------------------------------
