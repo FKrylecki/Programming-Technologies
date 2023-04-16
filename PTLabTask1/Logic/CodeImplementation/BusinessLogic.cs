@@ -12,7 +12,7 @@ namespace Logic.CodeImplementation
             DR = repo;
         }
 
-        public override void BuyItem(string userID, string stateID, int quantity)
+        public override void SellItem(string userID, string stateID, int quantity)
         {
             if (DR.GetState(stateID).Quantity <= quantity) { 
                 throw new Exception("Not enough items in stock."); 
@@ -25,9 +25,10 @@ namespace Logic.CodeImplementation
             DR.AddEvent(new Supply(stateID, userID, quantity));
             DR.ChangeQuantity(stateID, quantity);
         }
-        public override void ReturnItem(string userID, string stateID)
+        public override void ReturnItem(string userID, string stateID, int quantity)
         {
-            throw new NotImplementedException();
+            DR.AddEvent(new Return(stateID, userID, quantity));
+            DR.ChangeQuantity(stateID, quantity);
         }
     }
 }
