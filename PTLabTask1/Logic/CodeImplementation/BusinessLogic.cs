@@ -7,15 +7,23 @@ namespace Logic.CodeImplementation
     internal class BusinessLogic : IbusinessLogic
     {
         private IDataRepository DR;
-
-        public override void BuyItem(string userID, string stateID)
+        public BusinessLogic (IDataRepository repo)
         {
-            DR.AddEvent(new Sell(stateID, userID));
-            throw new NotImplementedException();
+            DR = repo;
         }
-        public override void SupplyItem(string userID, string stateID)
+
+        public override void BuyItem(string userID, string stateID, int quantity)
         {
-            throw new NotImplementedException();
+            if (DR.GetState(stateID).Quantity <= quantity) { 
+                throw new Exception("Not enough items in stock."); 
+            }
+            DR.AddEvent(new Sell(stateID, userID, -quantity));
+            DR.ChangeQuantity(stateID, -quantity);
+        }
+        public override void SupplyItem(string userID, string stateID, int quantity)
+        {
+            DR.AddEvent(new Supply(stateID, userID, quantity));
+            DR.ChangeQuantity(stateID, quantity);
         }
         public override void ReturnItem(string userID, string stateID)
         {

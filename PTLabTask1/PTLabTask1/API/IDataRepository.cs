@@ -29,10 +29,12 @@ namespace Data.API
         public abstract IEnumerable<IEvent> GetEventsList();
 
         //---------------------------------------------------
-        public static IDataRepository NewDataRepository(IFill? fill = default)
+        public static IDataRepository NewDataRepository(IDataGenerator? fill = default)
         {
             return new DataRepository(fill ?? new EmptyFill());
         }
+
+        public abstract void ChangeQuantity(string stateId ,int change);
 
 
     }

@@ -9,5 +9,9 @@ namespace Data.API
         string UserId { 
             get; 
         }
+        int QuantityChanged { 
+            get;
+            set;
+        }
     }
 }

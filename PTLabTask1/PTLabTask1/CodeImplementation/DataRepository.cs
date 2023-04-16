@@ -68,7 +68,7 @@ namespace Data.CodeImplementation
                     return data.states[i];
                 }
             }
-            throw new Exception("Could not find a User.");
+            throw new Exception("Could not find a State.");
         }
         public override IEnumerable<IState> GetStatesList() {
             return data.states;
@@ -92,6 +92,13 @@ namespace Data.CodeImplementation
 
         public override IEnumerable<IEvent> GetEventsList() {
             return data.events;
+        }
+
+        //---------------------------------------------------
+
+        public override void ChangeQuantity(string stateId, int change)
+        {
+            GetState(stateId).Quantity += change;
         }
     }
 }

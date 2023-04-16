@@ -11,10 +11,16 @@ namespace Logic.CodeImplementation
         {
             get; set;
         }
+        public int QuantityChanged 
+        { 
+            get; set; 
+        }
 
-        public Supply(string stateId, string userId) {
+        public Supply(string stateId, string userId, int quantityChanged)
+        {
             StateId = stateId;
             UserId = userId;
+            QuantityChanged = quantityChanged;
         }
     }
 }

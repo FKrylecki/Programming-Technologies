@@ -10,5 +10,10 @@
         {
             get;
         }
+        int QuantityChanged
+        {
+            get;
+            set;
+        }
     }
 }
