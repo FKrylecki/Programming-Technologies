@@ -15,13 +15,13 @@ namespace Test
             DR.AddUser(new User("C0004", "Mark", "Robert", "101 Willson St. New York"));
             DR.AddUser(new User("W0001", "Bob", "Reves", "50 Colorado St. New York"));
 
-            ICatalog c1 = new Catalog("S01A", "Szafka Nocna Aga", 299.99f);
-            ICatalog c2 = new Catalog("S02A", "Szafka Nocna Panama", 269.99f);
-            ICatalog c3 = new Catalog("S03A", "Szafka Nocna Besta", 359.99f);
-            ICatalog c4 = new Catalog("S01B", "Szafa Przesuwna Dąb", 999.99f);
-            ICatalog c5 = new Catalog("S02B", "Szafka 2-drzwiowa Aga", 1299.99f);
-            ICatalog c6 = new Catalog("B02B", "Biurko Hawana", 699.99f);
-            ICatalog c7 = new Catalog("B02B", "Biurko Lozana", 399.99f);
+            ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
+            ICatalog c2 = new Catalog("S02A", "Night Table Panama", 269.99f);
+            ICatalog c3 = new Catalog("S03A", "Night Table Besta", 359.99f);
+            ICatalog c4 = new Catalog("S01B", "Wardrobe Dąb", 999.99f);
+            ICatalog c5 = new Catalog("S02B", "Double Wardrobe Aga", 1299.99f);
+            ICatalog c6 = new Catalog("B02B", "Desk Hawana", 699.99f);
+            ICatalog c7 = new Catalog("B02B", "Desk Lozana", 399.99f);
 
             DR.AddCatalog(c1);
             DR.AddCatalog(c2);
