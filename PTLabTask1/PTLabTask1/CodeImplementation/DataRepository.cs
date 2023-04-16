@@ -9,10 +9,11 @@ namespace Data.CodeImplementation
     {
         private DataContext data;
 
-        public DataRepository(IDataGenerator genMethod)
+        public DataRepository(IDataGenerator? genMethod)
         {
             data = new DataContext();
-            genMethod.genrate(this);
+            genMethod?.genrate(this);
+            
         }
 
         public override void AddCatalog(ICatalog c) { 

@@ -1,4 +1,4 @@
-﻿using Data.API
+﻿using Data.API;
 
 namespace Logic.CodeImplementation
 {
