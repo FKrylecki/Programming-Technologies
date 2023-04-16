@@ -3,6 +3,7 @@ using Data.CodeImplementation;
 
 namespace Data.API
 {
+
     public abstract class IDataRepository
     {
         public abstract void AddCatalog(ICatalog c);
@@ -28,6 +29,10 @@ namespace Data.API
         public abstract IEnumerable<IEvent> GetEventsList();
 
         //---------------------------------------------------
+        public static IDataRepository NewDataRepository(IFill? fill = default)
+        {
+            return new DataRepository(fill ?? new EmptyFill());
+        }
 
 
     }

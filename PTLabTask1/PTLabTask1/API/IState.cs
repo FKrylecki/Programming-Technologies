@@ -3,7 +3,7 @@ namespace Data.API
 {
     public interface IState
     {
-        int ItemId { 
+        string ItemId { 
             get; 
         }
         string StateId {

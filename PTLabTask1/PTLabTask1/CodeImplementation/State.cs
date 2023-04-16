@@ -20,6 +20,6 @@ namespace Data.CodeImplementation
             get; 
             set; 
         }
-        public int ItemId => Catalog.Id;
+        public string ItemId => Catalog.Id;
     }
 }

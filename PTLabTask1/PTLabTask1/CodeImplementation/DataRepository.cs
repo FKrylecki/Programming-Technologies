@@ -6,6 +6,12 @@ namespace Data.CodeImplementation
     {
         private DataContext data;
 
+        public DataRepository(IDataGenerator genMethod)
+        {
+            data = new DataContext();
+            genMethod.genrate(this);
+        }
+
         public override void AddCatalog(ICatalog c) { 
             data.dictionary.Add(c.Id, c);
         }
