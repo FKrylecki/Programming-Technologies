@@ -1,6 +1,9 @@
 ﻿using Data.API;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Test")]
 namespace Data.CodeImplementation
+
 {
     internal class DataRepository : IDataRepository
     {

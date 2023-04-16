@@ -1,8 +1,11 @@
 ﻿using Data.API;
+using Data.CodeImplementation;
+using Logic.API;
+using Logic.CodeImplementation;
 
-namespace Data.CodeImplementation
+namespace Test
 {
-    internal class PresetData : IDataGenerator
+    internal class PresetDataGeneration : IDataGenerator
     {
         public override void genrate(IDataRepository DR)
         {
@@ -35,7 +38,7 @@ namespace Data.CodeImplementation
             DR.AddState(new State("Q", 10, c6));
             DR.AddState(new State("Q", 10, c7));
 
-            DR.AddEvent(new ISell())
+            DR.AddEvent(new Sell())
 
 
         }
