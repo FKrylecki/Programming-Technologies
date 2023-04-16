@@ -1,4 +1,6 @@
-﻿namespace Logic.API
+﻿using Data.API;
+
+namespace Logic.API
 {
     public abstract class IbusinessLogic
     {
