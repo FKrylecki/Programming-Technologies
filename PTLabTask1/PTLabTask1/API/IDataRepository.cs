@@ -35,7 +35,5 @@ namespace Data.API
         }
 
         public abstract void ChangeQuantity(string stateId ,int change);
-
-
     }
 }

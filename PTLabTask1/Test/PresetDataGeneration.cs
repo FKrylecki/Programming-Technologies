@@ -13,6 +13,7 @@ namespace Test
             DR.AddUser(new User("C0002", "Anna", "Nickolson", "219 Grove St. New York"));
             DR.AddUser(new User("C0003", "Hank", "White", "31 Blueberry St. New York"));
             DR.AddUser(new User("C0004", "Mark", "Robert", "101 Willson St. New York"));
+            DR.AddUser(new User("W0001", "Bob", "Reves", "50 Colorado St. New York"));
 
             ICatalog c1 = new Catalog("S01A", "Szafka Nocna Aga", 299.99f);
             ICatalog c2 = new Catalog("S02A", "Szafka Nocna Panama", 269.99f);
@@ -30,17 +31,18 @@ namespace Test
             DR.AddCatalog(c6);
             DR.AddCatalog(c7);
 
-            DR.AddState(new State("Q", 24, c1));
-            DR.AddState(new State("Q", 44, c2));
-            DR.AddState(new State("Q", 20, c3));
-            DR.AddState(new State("Q", 12, c4));
-            DR.AddState(new State("Q", 10, c5));
-            DR.AddState(new State("Q", 10, c6));
-            DR.AddState(new State("Q", 10, c7));
+            DR.AddState(new State("Q1", 24, c1));
+            DR.AddState(new State("Q2", 44, c2));
+            DR.AddState(new State("Q3", 20, c3));
+            DR.AddState(new State("Q4", 12, c4));
+            DR.AddState(new State("Q5", 10, c5));
+            DR.AddState(new State("Q6", 10, c6));
+            DR.AddState(new State("Q7", 10, c7));
 
-            DR.AddEvent(new Sell())
-
-
+            DR.AddEvent(new Sell("Q1", "C0001", 2));
+            DR.AddEvent(new Sell("Q1", "C0002", 1));
+            DR.AddEvent(new Sell("Q5", "C0004", 5));
+            DR.AddEvent(new Supply("Q3", "W0001", 10));
         }
     }
 }

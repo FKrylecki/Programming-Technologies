@@ -1,6 +1,8 @@
-﻿namespace Logic.CodeImplementation
+﻿using Data.API
+
+namespace Logic.CodeImplementation
 {
-    internal class Return
+    internal class Return : IEvent
     {
         public string StateId { get; }
         public string UserId { get; }

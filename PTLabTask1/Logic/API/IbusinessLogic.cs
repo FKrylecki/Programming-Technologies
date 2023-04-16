@@ -1,4 +1,5 @@
-﻿using Data.API;
+﻿using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("Test")]
 
 namespace Logic.API
 {
