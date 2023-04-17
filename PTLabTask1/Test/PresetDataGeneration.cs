@@ -21,7 +21,7 @@ namespace Test
             ICatalog c4 = new Catalog("S01B", "Wardrobe Dąb", 999.99f);
             ICatalog c5 = new Catalog("S02B", "Double Wardrobe Aga", 1299.99f);
             ICatalog c6 = new Catalog("B02B", "Desk Hawana", 699.99f);
-            ICatalog c7 = new Catalog("B02B", "Desk Lozana", 399.99f);
+            ICatalog c7 = new Catalog("B02C", "Desk Lozana", 399.99f);
 
             DR.AddCatalog(c1);
             DR.AddCatalog(c2);
@@ -40,9 +40,10 @@ namespace Test
             DR.AddState(new State("Q7", 10, c7));
 
             DR.AddEvent(new Sell("Q1", "C0001", 2));
-            DR.AddEvent(new Sell("Q1", "C0002", 1));
-            DR.AddEvent(new Sell("Q5", "C0004", 5));
-            DR.AddEvent(new Supply("Q3", "W0001", 10));
+            DR.AddEvent(new Sell("Q2", "C0002", 1));
+            DR.AddEvent(new Sell("Q3", "C0004", 5));
+            DR.AddEvent(new Supply("Q4", "W0001", 10));
+            DR.AddEvent(new Return("Q5", "W0001", 2));
         }
     }
 }
