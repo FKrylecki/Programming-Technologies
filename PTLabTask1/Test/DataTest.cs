@@ -90,5 +90,17 @@ namespace Test
             Assert.IsTrue(DR.GetEventsList().Count() == 0);
 
         }
+
+        [TestMethod]
+        public void TestQuantityMethod()
+        {
+            IDataRepository DR = new DataRepository(null);
+            ICatalog t_catalog = new Catalog("S002B", "Table", 199.99f);
+            IState t_state = new State("Q1", 12, t_catalog);
+            DR.AddCatalog(t_catalog);
+            DR.AddState(t_state);
+            DR.ChangeQuantity("Q1", 5);
+            Assert.AreEqual(DR.GetState("Q1").Quantity, 17);
+        }
     }
 }
