@@ -43,8 +43,12 @@ namespace Test
             ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
             DR.AddCatalog(c1);
             DR.AddState(new State("Q1", 24, c1));
+            logicDR.SellItem("C0001", "Q1", 2);
             logicDR.ReturnItem("C0001", "Q1", 1);
-            Assert.AreEqual(DR.GetState("Q1").Quantity, 25);
+
+            Assert.AreEqual(DR.GetState("Q1").Quantity, 23);
+
+            Assert.ThrowsException<Exception>(() => logicDR.ReturnItem("C0001", "Q2", 1));
         }
     }
 }
