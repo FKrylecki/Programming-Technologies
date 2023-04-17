@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Logic.CodeImplementation
 {
-    internal class BusinessLogic : IbusinessLogic
+    internal class BusinessLogic : IBusinessLogic
     {
         private IDataRepository DR;
         public BusinessLogic (IDataRepository repo)

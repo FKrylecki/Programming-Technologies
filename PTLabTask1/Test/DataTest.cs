@@ -10,7 +10,7 @@ namespace Test
         [TestMethod]
         public void TestNullEmptyGeneration()
         {
-            IDataRepository DR = new DataRepository(null);
+            var DR = IDataRepository.CreateNewRepository(null);
             Assert.IsNotNull(DR);
             Assert.IsTrue(DR.GetCatalogsList().Count() == 0);
             Assert.IsTrue(DR.GetEventsList().Count() == 0);

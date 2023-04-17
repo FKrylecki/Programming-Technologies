@@ -30,5 +30,9 @@ namespace Data.API
 
         //---------------------------------------------------
         public abstract void ChangeQuantity(string stateId ,int change);
+
+        public static IDataRepository CreateNewRepository(IDataGenerator? generator) { 
+            return new DataRepository(generator);
+        }
     }
 }

@@ -11,8 +11,8 @@ namespace Test
         [TestMethod]
         public void TestSellMethod()
         {
-        IDataRepository DR = new DataRepository(null);
-        IbusinessLogic logicDR = new BusinessLogic(DR);
+        var DR = IDataRepository.CreateNewRepository(null);
+        var logicDR = IBusinessLogic.CreateNewLogic(DR);
         DR.AddUser(new User("C0001", "Bill", "Nickolson", "219 Grove St. New York"));
         ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
         DR.AddCatalog(c1);
@@ -24,8 +24,8 @@ namespace Test
         [TestMethod]
         public void TestSupplyMethod()
         {
-            IDataRepository DR = new DataRepository(null);
-            IbusinessLogic logicDR = new BusinessLogic(DR);
+            var DR = IDataRepository.CreateNewRepository(null);
+            var logicDR = IBusinessLogic.CreateNewLogic(DR);
             DR.AddUser(new User("C0001", "Bill", "Nickolson", "219 Grove St. New York"));
             ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
             DR.AddCatalog(c1);
@@ -37,8 +37,8 @@ namespace Test
         [TestMethod]
         public void TestReturnMethod()
         {
-            IDataRepository DR = new DataRepository(null);
-            IbusinessLogic logicDR = new BusinessLogic(DR);
+            var DR = IDataRepository.CreateNewRepository(null);
+            var logicDR = IBusinessLogic.CreateNewLogic(DR);
             DR.AddUser(new User("C0001", "Bill", "Nickolson", "219 Grove St. New York"));
             ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
             DR.AddCatalog(c1);
