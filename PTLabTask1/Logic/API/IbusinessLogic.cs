@@ -13,7 +13,7 @@ namespace Logic.API
 
         public static IBusinessLogic CreateNewLogic(IDataRepository? DR)
         {
-            return new BusinessLogic(DR ?? IDataRepository.CreateNewRepository(null));
+            return new BusinessLogic(DR != null ? DR : IDataRepository.CreateNewRepository(null));
         }
     }
 }
