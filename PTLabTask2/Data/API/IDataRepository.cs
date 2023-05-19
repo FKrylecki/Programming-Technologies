@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections.Generic;
 using Data.CodeImplementation;
 
 namespace Data.API
@@ -22,6 +22,7 @@ namespace Data.API
         public abstract void RemoveState(IState s);
         public abstract IState GetState(string id);
         public abstract IEnumerable<IState> GetStatesList();
+        public abstract void ChangeQuantity(string stateId, int change);
 
         //---------------------------------------------------
         public abstract void AddEvent(IEvent e);
@@ -29,10 +30,7 @@ namespace Data.API
         public abstract IEnumerable<IEvent> GetEventsList();
 
         //---------------------------------------------------
-        public abstract void ChangeQuantity(string stateId ,int change);
-
-        public static IDataRepository CreateNewRepository(IDataGenerator? generator) { 
-            return new DataRepository(generator);
-        }
+        
+        
     }
 }

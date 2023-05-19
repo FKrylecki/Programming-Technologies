@@ -1,5 +1,7 @@
 ﻿using Data.API;
 using System.Runtime.CompilerServices;
+using System.Linq;
+
 
 [assembly: InternalsVisibleTo("Test")]
 namespace Data.CodeImplementation
@@ -7,7 +9,7 @@ namespace Data.CodeImplementation
 {
     internal class DataRepository : IDataRepository
     {
-        private DataContext data;
+        private  data;
 
         public DataRepository(IDataGenerator? genMethod)
         {
