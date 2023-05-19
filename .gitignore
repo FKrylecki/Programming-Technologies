@@ -348,3 +348,11 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Data layer database connection files
+# the connection string and setup
+# is different on two other computers
+Settings.Designer.cs
+Settings.Settings
+app.config
+FurnitureShop.*
