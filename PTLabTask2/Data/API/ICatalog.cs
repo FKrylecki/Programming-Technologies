@@ -2,7 +2,7 @@
 {
     public interface ICatalog
     {
-        string Id 
+        int Id 
         { 
             get; 
             set; 
@@ -12,7 +12,7 @@
             get; 
             set; 
         }
-        float Price 
+        decimal Price 
         { 
             get; 
             set; 

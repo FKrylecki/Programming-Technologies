@@ -3,7 +3,7 @@ namespace Data.API
 {
     public interface IUser
     {
-        string Id {
+        int Id {
             get;
             set;
         }

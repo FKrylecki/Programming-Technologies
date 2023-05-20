@@ -3,10 +3,13 @@ namespace Data.API
 {
     public interface IEvent
     {
-        string StateId { 
+        int Id { 
             get; 
         }
-        string UserId { 
+        int StateId { 
+            get; 
+        }
+        int UserId { 
             get; 
         }
         int QuantityChanged { 

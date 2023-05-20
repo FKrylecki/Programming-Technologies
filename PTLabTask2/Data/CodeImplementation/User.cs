@@ -5,7 +5,7 @@ namespace Data.CodeImplementation
 {
     internal class User : IUser
     {
-        public User(string id, string firstName, string lastName, string address)
+        public User(int id, string firstName, string lastName, string address)
         {
             Id = id;
             FirstName = firstName;
@@ -17,7 +17,7 @@ namespace Data.CodeImplementation
 
         public string LastName { get; set; }
 
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Address { get; set; }
     }

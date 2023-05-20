@@ -3,16 +3,17 @@ namespace Data.API
 {
     public interface IState
     {
-        string ItemId { 
-            get; 
-        }
-        string StateId {
+        int StateId {
             get;
             set;
         }
         int Quantity { 
             get; 
             set; 
+        }
+        int Catalog {
+            get;
+            set;
         }
     }
 }
