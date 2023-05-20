@@ -40,18 +40,18 @@ namespace Data.CodeImplementation
             return new Catalog(item.id, item.name, item.price);
         }
 
-        private void AddCatalog(ICatalog c)
+        public void AddCatalog(int id, string name, decimal price)
         {
             var cat = new catalog
             {
-                id = c.Id,
-                name = c.Name,
-                price = c.Price
+                id = id,
+                name = name,
+                price = price
             };
             dataContext.catalogs.InsertOnSubmit(cat);
             dataContext.SubmitChanges();
         }
-        private void RemoveCatalog(int id)
+        public void RemoveCatalog(int id)
         {
             var cat = (from catalog
                        in dataContext.catalogs
@@ -60,7 +60,7 @@ namespace Data.CodeImplementation
             dataContext.catalogs.DeleteOnSubmit(cat);
             dataContext.SubmitChanges();
         }
-        private void UpdateCatalog(int id, string name, decimal price)
+        public void UpdateCatalog(int id, string name, decimal price)
         {
             var cat = (from catalog
                        in dataContext.catalogs
@@ -73,7 +73,7 @@ namespace Data.CodeImplementation
             }
             dataContext.SubmitChanges();
         }
-        private ICatalog GetCatalog(int id)
+        public ICatalog GetCatalog(int id)
         {
             var cat = (from catalog 
                        in dataContext.catalogs 
@@ -88,7 +88,7 @@ namespace Data.CodeImplementation
                 return Entry(cat);
             }
         }
-        private IEnumerable<ICatalog> GetCatalogsList()
+        public IEnumerable<ICatalog> GetCatalogsList()
         {
             var cats = from catalog 
                        in dataContext.catalogs 
@@ -97,19 +97,19 @@ namespace Data.CodeImplementation
         }
 
         //---------------------------------------------------
-        private void AddUser(IUser u)
+        public void AddUser(int id, string firstName, string lastName, string address)
         {
             var User = new user
             {
-                id = u.Id,
-                firstName = u.FirstName,
-                lastName = u.LastName,
-                address = u.Address,
+                id = id,
+                firstName = firstName,
+                lastName = lastName,
+                address = address,
             };
             dataContext.users.InsertOnSubmit(User);
             dataContext.SubmitChanges();
         }
-        private void RemoveUser(int id)
+        public void RemoveUser(int id)
         {
             var User = (from user
                        in dataContext.users
@@ -118,7 +118,7 @@ namespace Data.CodeImplementation
             dataContext.users.DeleteOnSubmit(User);
             dataContext.SubmitChanges();
         }
-        private void UpdateUser(int id, string firstName, string lastName, string address)
+        public void UpdateUser(int id, string firstName, string lastName, string address)
         {
             var User = (from user
                        in dataContext.users
@@ -132,7 +132,7 @@ namespace Data.CodeImplementation
             }
             dataContext.SubmitChanges();
         }
-        private IUser GetUser(int id)
+        public IUser GetUser(int id)
         {
             var User = (from user
                        in dataContext.users
@@ -147,7 +147,7 @@ namespace Data.CodeImplementation
                 return Entry(User);
             }
         }
-        private IEnumerable<IUser> GetUsersList()
+        public IEnumerable<IUser> GetUsersList()
         {
             var Users = from user
                        in dataContext.users
@@ -156,39 +156,81 @@ namespace Data.CodeImplementation
         }
 
         //---------------------------------------------------
-        private void AddState(IState s)
+        public void AddState(int id, int quantity, int catalogId)
         {
-
+            var State = new state
+            {
+                id = id,
+                quantity = quantity,
+                catalogId = catalogId,
+            };
+            dataContext.states.InsertOnSubmit(State);
+            dataContext.SubmitChanges();
         }
-        private void RemoveState(IState s)
+        public void RemoveState(int id)
         {
-
+            var State = (from state
+                        in dataContext.states
+                        where state.id == id
+                        select state).FirstOrDefault();
+            dataContext.states.DeleteOnSubmit(State);
+            dataContext.SubmitChanges();
         }
-        private IState GetState(string id)
+        public IState GetState(int id)
         {
-
+           var State = (from state
+                        in dataContext.states
+                        where state.id == id
+                        select state).FirstOrDefault();
+            if (State == null)
+            {
+                return null;
+            }
+            else
+            {
+                return Entry(State);
+            }
         }
-        private IEnumerable<IState> GetStatesList()
+        public IEnumerable<IState> GetStatesList()
         {
-
+            var States = from state
+                        in dataContext.states
+                        select Entry(state);
+            return States;
         }
-        private void ChangeQuantity(string stateId, int change)
+        public void ChangeQuantity(int stateId, int change)
         {
-
+            GetState(stateId).Quantity += change;
         }
 
         //---------------------------------------------------
-        private void AddEvent(IEvent e)
+        public void AddEvent(int id, int stateId, int userId, int QuantityChanged)
         {
-
+            var Event = new @event
+            {
+                id = id,
+                stateId = stateId,
+                userId = userId,
+                quantityChanged = QuantityChanged
+            };
+            dataContext.events.InsertOnSubmit(Event);
+            dataContext.SubmitChanges();
         }
-        private void RemoveEvent(IEvent e)
+        public void RemoveEvent(int id)
         {
-
+            var Event = (from @event
+                        in dataContext.events
+                        where @event.id == id
+                        select @event).FirstOrDefault();
+            dataContext.events.DeleteOnSubmit(Event);
+            dataContext.SubmitChanges();
         }
-        private IEnumerable<IEvent> GetEventsList()
+        public IEnumerable<IEvent> GetEventsList()
         {
-
+            var Events = from @event
+                         in dataContext.events
+                         select Entry(@event);
+            return Events;
         }
 
         //---------------------------------------------------
