@@ -11,6 +11,8 @@ namespace Services.CodeImplementation
         {
             repository = _repository ?? IDataRepository.CreateNewRepository();
         }
+
+        //------------------------------------------------------
         public void AddCatalog(int id, string name, decimal price)
         {
             repository.AddCatalog(id, name, price);
@@ -31,53 +33,71 @@ namespace Services.CodeImplementation
         {
             return repository.GetCatalogsList();
         }
-        void AddUser(int id, string firstName, string lastName, string address)
+
+        //------------------------------------------------------
+        public void AddUser(int id, string firstName, string lastName, string address)
         {
             repository.AddUser(id, firstName, lastName, address);
         }
-        void RemoveUser(int id)
+        public void RemoveUser(int id)
         {
             repository.RemoveUser(id);
         }
-        void UpdateUser(int id, string firstName, string lastName, string address)
+        public void UpdateUser(int id, string firstName, string lastName, string address)
         {
             repository.UpdateUser(id, firstName, lastName, address);
         }
-        IUser GetUser(int id)
+        public IUser GetUser(int id)
         {
             return repository.GetUser(id);
         }
-        IEnumerable<IUser> GetUsersList()
+        public IEnumerable<IUser> GetUsersList()
         {
             return repository.GetUsersList();
         }
-        void AddState(int id, int quantity, int catalogId)
+
+        //------------------------------------------------------
+        public void AddState(int id, int quantity, int catalogId)
         {
             repository.AddState(id, quantity, catalogId);
         }
-        void RemoveState(int id)
+        public void RemoveState(int id)
         {
             repository.RemoveState(id);
         }
-        IState GetState(int id)
+        public IState GetState(int id)
         {
             return repository.GetState(id);
         }
-        IEnumerable<IState> GetStatesList()
+        public IEnumerable<IState> GetStatesList()
         {
             return repository.GetStatesList();
         }
-        void AddEvent(int id, int stateId, int userId, int QuantityChanged)
+
+        //------------------------------------------------------
+        private void AddEvent(int id, int stateId, int userId, int QuantityChanged)
         {
             repository.AddEvent(id, stateId, userId, QuantityChanged);
         }
-        void RemoveEvent(int id)
+        public void RemoveEvent(int id)
         {
             repository.RemoveEvent(id);
         }
-        IEnumerable<IEvent> GetEventsList()
+        public IEnumerable<IEvent> GetEventsList()
         {
             return repository.GetEventsList();
+        }
+        public void SellItem(int id, int stateId, int userId, int QuantityChanged)
+        {
+            AddEvent(id, stateId, userId, -QuantityChanged);
+        }
+        public void ReturnItem(int id, int stateId, int userId, int QuantityChanged)
+        {
+            AddEvent(id, stateId, userId, QuantityChanged);
+        }
+        public void SupplyItem(int id, int stateId, int userId, int QuantityChanged)
+        {
+            AddEvent(id, stateId, userId, QuantityChanged);
         }
     }
 }
