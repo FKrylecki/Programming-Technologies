@@ -13,63 +13,63 @@ namespace Services.CodeImplementation
         }
 
         //------------------------------------------------------
-        public void AddCatalog(int id, string name, decimal price)
+        public override void AddCatalog(int id, string name, decimal price)
         {
             repository.AddCatalog(id, name, price);
         }
-        public void RemoveCatalog(int id)
+        public override void RemoveCatalog(int id)
         {
             repository.RemoveCatalog(id);
         }
-        public void UpdateCatalog(int id, string name, decimal price)
+        public override void UpdateCatalog(int id, string name, decimal price)
         {
             repository.UpdateCatalog(id, name, price);
         }
-        public ICatalog GetCatalog(int id)
+        public override ICatalog GetCatalog(int id)
         {
             return repository.GetCatalog(id);
         }
-        public IEnumerable<ICatalog> GetCatalogsList()
+        public override IEnumerable<ICatalog> GetCatalogsList()
         {
             return repository.GetCatalogsList();
         }
 
         //------------------------------------------------------
-        public void AddUser(int id, string firstName, string lastName, string address)
+        public override void AddUser(int id, string firstName, string lastName, string address)
         {
             repository.AddUser(id, firstName, lastName, address);
         }
-        public void RemoveUser(int id)
+        public override void RemoveUser(int id)
         {
             repository.RemoveUser(id);
         }
-        public void UpdateUser(int id, string firstName, string lastName, string address)
+        public override void UpdateUser(int id, string firstName, string lastName, string address)
         {
             repository.UpdateUser(id, firstName, lastName, address);
         }
-        public IUser GetUser(int id)
+        public override IUser GetUser(int id)
         {
             return repository.GetUser(id);
         }
-        public IEnumerable<IUser> GetUsersList()
+        public override IEnumerable<IUser> GetUsersList()
         {
             return repository.GetUsersList();
         }
 
         //------------------------------------------------------
-        public void AddState(int id, int quantity, int catalogId)
+        public override void AddState(int id, int quantity, int catalogId)
         {
             repository.AddState(id, quantity, catalogId);
         }
-        public void RemoveState(int id)
+        public override void RemoveState(int id)
         {
             repository.RemoveState(id);
         }
-        public IState GetState(int id)
+        public override IState GetState(int id)
         {
             return repository.GetState(id);
         }
-        public IEnumerable<IState> GetStatesList()
+        public override IEnumerable<IState> GetStatesList()
         {
             return repository.GetStatesList();
         }
@@ -79,23 +79,23 @@ namespace Services.CodeImplementation
         {
             repository.AddEvent(id, stateId, userId, QuantityChanged);
         }
-        public void RemoveEvent(int id)
+        public override void RemoveEvent(int id)
         {
             repository.RemoveEvent(id);
         }
-        public IEnumerable<IEvent> GetEventsList()
+        public override IEnumerable<IEvent> GetEventsList()
         {
             return repository.GetEventsList();
         }
-        public void SellItem(int id, int stateId, int userId, int QuantityChanged)
+        public override void SellItem(int id, int stateId, int userId, int QuantityChanged)
         {
             AddEvent(id, stateId, userId, -QuantityChanged);
         }
-        public void ReturnItem(int id, int stateId, int userId, int QuantityChanged)
+        public override void ReturnItem(int id, int stateId, int userId, int QuantityChanged)
         {
             AddEvent(id, stateId, userId, QuantityChanged);
         }
-        public void SupplyItem(int id, int stateId, int userId, int QuantityChanged)
+        public override void SupplyItem(int id, int stateId, int userId, int QuantityChanged)
         {
             AddEvent(id, stateId, userId, QuantityChanged);
         }
