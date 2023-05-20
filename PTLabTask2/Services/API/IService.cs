@@ -24,10 +24,8 @@ public interface IService
     IEnumerable<IState> GetStatesList();
 
     //---------------------------------------------------
-    void AddEvent(int id, int stateId, int userId, int QuantityChanged);
     void RemoveEvent(int id);
     IEnumerable<IEvent> GetEventsList();
-
     void SellItem(int id, int stateId, int userId, int QuantityChanged);
     void ReturnItem(int id, int stateId, int userId, int QuantityChanged);
     void SupplyItem(int id, int stateId, int userId, int QuantityChanged);
