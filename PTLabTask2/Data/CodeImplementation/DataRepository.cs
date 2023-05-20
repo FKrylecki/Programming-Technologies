@@ -40,7 +40,7 @@ namespace Data.CodeImplementation
             return new Catalog(item.id, item.name, item.price);
         }
 
-        public void AddCatalog(int id, string name, decimal price)
+        public override void AddCatalog(int id, string name, decimal price)
         {
             var cat = new catalog
             {
@@ -51,7 +51,7 @@ namespace Data.CodeImplementation
             dataContext.catalogs.InsertOnSubmit(cat);
             dataContext.SubmitChanges();
         }
-        public void RemoveCatalog(int id)
+        public override void RemoveCatalog(int id)
         {
             var cat = (from catalog
                        in dataContext.catalogs
@@ -60,7 +60,7 @@ namespace Data.CodeImplementation
             dataContext.catalogs.DeleteOnSubmit(cat);
             dataContext.SubmitChanges();
         }
-        public void UpdateCatalog(int id, string name, decimal price)
+        public override void UpdateCatalog(int id, string name, decimal price)
         {
             var cat = (from catalog
                        in dataContext.catalogs
@@ -73,7 +73,7 @@ namespace Data.CodeImplementation
             }
             dataContext.SubmitChanges();
         }
-        public ICatalog GetCatalog(int id)
+        public override ICatalog GetCatalog(int id)
         {
             var cat = (from catalog 
                        in dataContext.catalogs 
@@ -88,7 +88,7 @@ namespace Data.CodeImplementation
                 return Entry(cat);
             }
         }
-        public IEnumerable<ICatalog> GetCatalogsList()
+        public override IEnumerable<ICatalog> GetCatalogsList()
         {
             var cats = from catalog 
                        in dataContext.catalogs 
@@ -97,7 +97,7 @@ namespace Data.CodeImplementation
         }
 
         //---------------------------------------------------
-        public void AddUser(int id, string firstName, string lastName, string address)
+        public override void AddUser(int id, string firstName, string lastName, string address)
         {
             var User = new user
             {
@@ -109,7 +109,7 @@ namespace Data.CodeImplementation
             dataContext.users.InsertOnSubmit(User);
             dataContext.SubmitChanges();
         }
-        public void RemoveUser(int id)
+        public override void RemoveUser(int id)
         {
             var User = (from user
                        in dataContext.users
@@ -118,7 +118,7 @@ namespace Data.CodeImplementation
             dataContext.users.DeleteOnSubmit(User);
             dataContext.SubmitChanges();
         }
-        public void UpdateUser(int id, string firstName, string lastName, string address)
+        public override void UpdateUser(int id, string firstName, string lastName, string address)
         {
             var User = (from user
                        in dataContext.users
@@ -132,7 +132,7 @@ namespace Data.CodeImplementation
             }
             dataContext.SubmitChanges();
         }
-        public IUser GetUser(int id)
+        public override IUser GetUser(int id)
         {
             var User = (from user
                        in dataContext.users
@@ -147,7 +147,7 @@ namespace Data.CodeImplementation
                 return Entry(User);
             }
         }
-        public IEnumerable<IUser> GetUsersList()
+        public override IEnumerable<IUser> GetUsersList()
         {
             var Users = from user
                        in dataContext.users
@@ -156,7 +156,7 @@ namespace Data.CodeImplementation
         }
 
         //---------------------------------------------------
-        public void AddState(int id, int quantity, int catalogId)
+        public override void AddState(int id, int quantity, int catalogId)
         {
             var State = new state
             {
@@ -167,7 +167,7 @@ namespace Data.CodeImplementation
             dataContext.states.InsertOnSubmit(State);
             dataContext.SubmitChanges();
         }
-        public void RemoveState(int id)
+        public override void RemoveState(int id)
         {
             var State = (from state
                         in dataContext.states
@@ -176,7 +176,7 @@ namespace Data.CodeImplementation
             dataContext.states.DeleteOnSubmit(State);
             dataContext.SubmitChanges();
         }
-        public IState GetState(int id)
+        public override IState GetState(int id)
         {
            var State = (from state
                         in dataContext.states
@@ -191,20 +191,20 @@ namespace Data.CodeImplementation
                 return Entry(State);
             }
         }
-        public IEnumerable<IState> GetStatesList()
+        public override IEnumerable<IState> GetStatesList()
         {
             var States = from state
                         in dataContext.states
                         select Entry(state);
             return States;
         }
-        public void ChangeQuantity(int stateId, int change)
+        public override void ChangeQuantity(int stateId, int change)
         {
             GetState(stateId).Quantity += change;
         }
 
         //---------------------------------------------------
-        public void AddEvent(int id, int stateId, int userId, int QuantityChanged)
+        public override void AddEvent(int id, int stateId, int userId, int QuantityChanged)
         {
             var Event = new @event
             {
@@ -216,7 +216,7 @@ namespace Data.CodeImplementation
             dataContext.events.InsertOnSubmit(Event);
             dataContext.SubmitChanges();
         }
-        public void RemoveEvent(int id)
+        public override void RemoveEvent(int id)
         {
             var Event = (from @event
                         in dataContext.events
@@ -225,7 +225,7 @@ namespace Data.CodeImplementation
             dataContext.events.DeleteOnSubmit(Event);
             dataContext.SubmitChanges();
         }
-        public IEnumerable<IEvent> GetEventsList()
+        public override IEnumerable<IEvent> GetEventsList()
         {
             var Events = from @event
                          in dataContext.events

@@ -6,6 +6,14 @@ namespace Services.CodeImplementation
 {
     internal class Service : IService
     {
+        private readonly IDataRepository repository;
+
+        public Service(IDataRepository _repository = default) 
+        {
+            repository = _repository ?? IDataRepository.CreateNewRepository();
+        }
+
+
         public void AddCatalog(int id, string name, decimal price)
         {
             throw new System.NotImplementedException();
