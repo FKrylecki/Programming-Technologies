@@ -1,5 +1,4 @@
-﻿
-using Data.API;
+﻿using Data.API;
 using System.Collections.Generic;
 
 namespace Services.CodeImplementation
@@ -12,106 +11,73 @@ namespace Services.CodeImplementation
         {
             repository = _repository ?? IDataRepository.CreateNewRepository();
         }
-
-
         public void AddCatalog(int id, string name, decimal price)
         {
-            throw new System.NotImplementedException();
+            repository.AddCatalog(id, name, price);
         }
-
-        public void AddEvent(int id, int stateId, int userId, int QuantityChanged)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void AddState(int id, int quantity, int catalogId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void AddUser(int id, string firstName, string lastName, string address)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public ICatalog GetCatalog(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<ICatalog> GetCatalogsList()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<IEvent> GetEventsList()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IState GetState(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<IState> GetStatesList()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IUser GetUser(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<IUser> GetUsersList()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void RemoveCatalog(int id)
         {
-            throw new System.NotImplementedException();
+            repository.RemoveCatalog(id);
         }
-
-        public void RemoveEvent(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveState(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveUser(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void ReturnItem(int id, int stateId, int userId, int QuantityChanged)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void SellItem(int id, int stateId, int userId, int QuantityChanged)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void SupplyItem(int id, int stateId, int userId, int QuantityChanged)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void UpdateCatalog(int id, string name, decimal price)
         {
-            throw new System.NotImplementedException();
+            repository.UpdateCatalog(id, name, price);
         }
-
-        public void UpdateUser(int id, string firstName, string lastName, string address)
+        public ICatalog GetCatalog(int id)
         {
-            throw new System.NotImplementedException();
+            return repository.GetCatalog(id);
+        }
+        public IEnumerable<ICatalog> GetCatalogsList()
+        {
+            return repository.GetCatalogsList();
+        }
+        void AddUser(int id, string firstName, string lastName, string address)
+        {
+            repository.AddUser(id, firstName, lastName, address);
+        }
+        void RemoveUser(int id)
+        {
+            repository.RemoveUser(id);
+        }
+        void UpdateUser(int id, string firstName, string lastName, string address)
+        {
+            repository.UpdateUser(id, firstName, lastName, address);
+        }
+        IUser GetUser(int id)
+        {
+            return repository.GetUser(id);
+        }
+        IEnumerable<IUser> GetUsersList()
+        {
+            return repository.GetUsersList();
+        }
+        void AddState(int id, int quantity, int catalogId)
+        {
+            repository.AddState(id, quantity, catalogId);
+        }
+        void RemoveState(int id)
+        {
+            repository.RemoveState(id);
+        }
+        IState GetState(int id)
+        {
+            return repository.GetState(id);
+        }
+        IEnumerable<IState> GetStatesList()
+        {
+            return repository.GetStatesList();
+        }
+        void AddEvent(int id, int stateId, int userId, int QuantityChanged)
+        {
+            repository.AddEvent(id, stateId, userId, QuantityChanged);
+        }
+        void RemoveEvent(int id)
+        {
+            repository.RemoveEvent(id);
+        }
+        IEnumerable<IEvent> GetEventsList()
+        {
+            return repository.GetEventsList();
         }
     }
 }
