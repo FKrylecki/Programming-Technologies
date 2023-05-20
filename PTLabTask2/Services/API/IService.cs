@@ -1,32 +1,39 @@
 ﻿using System.Collections.Generic;
 using Data.API;
+using Services.CodeImplementation;
 
 
-public interface IService
+public abstract class  IService
 {
-    void AddCatalog(int id, string name, decimal price);
-    void RemoveCatalog(int id);
-    void UpdateCatalog(int id, string name, decimal price);
-    ICatalog GetCatalog(int id);
-    IEnumerable<ICatalog> GetCatalogsList();
+    public abstract void AddCatalog(int id, string name, decimal price);
+    public abstract void RemoveCatalog(int id);
+    public abstract void UpdateCatalog(int id, string name, decimal price);
+    public abstract ICatalog GetCatalog(int id);
+    public abstract IEnumerable<ICatalog> GetCatalogsList();
 
     //---------------------------------------------------
-    void AddUser(int id, string firstName, string lastName, string address);
-    void RemoveUser(int id);
-    void UpdateUser(int id, string firstName, string lastName, string address);
-    IUser GetUser(int id);
-    IEnumerable<IUser> GetUsersList();
+    public abstract void AddUser(int id, string firstName, string lastName, string address);
+    public abstract void RemoveUser(int id);
+    public abstract void UpdateUser(int id, string firstName, string lastName, string address);
+    public abstract IUser GetUser(int id);
+    public abstract IEnumerable<IUser> GetUsersList();
 
     //---------------------------------------------------
-    void AddState(int id, int quantity, int catalogId);
-    void RemoveState(int id);
-    IState GetState(int id);
-    IEnumerable<IState> GetStatesList();
+    public abstract void AddState(int id, int quantity, int catalogId);
+    public abstract void RemoveState(int id);
+    public abstract IState GetState(int id);
+    public abstract IEnumerable<IState> GetStatesList();
 
     //---------------------------------------------------
-    void RemoveEvent(int id);
-    IEnumerable<IEvent> GetEventsList();
-    void SellItem(int id, int stateId, int userId, int QuantityChanged);
-    void ReturnItem(int id, int stateId, int userId, int QuantityChanged);
-    void SupplyItem(int id, int stateId, int userId, int QuantityChanged);
+    public abstract void RemoveEvent(int id);
+    public abstract IEnumerable<IEvent> GetEventsList();
+    public abstract void SellItem(int id, int stateId, int userId, int QuantityChanged);
+    public abstract void ReturnItem(int id, int stateId, int userId, int QuantityChanged);
+    public abstract void SupplyItem(int id, int stateId, int userId, int QuantityChanged);
+
+    public static IService CreateNewService()
+    {
+        return new Service();
+    }
+
 }
