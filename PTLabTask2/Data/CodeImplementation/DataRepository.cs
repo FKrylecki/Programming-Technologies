@@ -20,22 +20,22 @@ namespace Data.CodeImplementation
             dataContext = data ?? new FurnitureShopDataContext();
         }
 
-        private IUser Entry(user user)
+        private IUser EntryToObj(user user)
         {
             return new User(user.id, user.firstName, user.lastName, user.address);
         }
 
-        private IEvent Entry(@event events)
+        private IEvent EntryToObj(@event events)
         {
             return new Event(events.id, events.stateId, events.userId, events.quantityChanged);
         }
 
-        private IState Entry(state state)
+        private IState EntryToObj(state state)
         {
             return new State(state.id, state.quantity, state.catalogId);
         }
 
-        private ICatalog Entry(catalog item)
+        private ICatalog EntryToObj(catalog item)
         {
             return new Catalog(item.id, item.name, item.price);
         }
@@ -85,14 +85,14 @@ namespace Data.CodeImplementation
             }
             else
             {
-                return Entry(cat);
+                return EntryToObj(cat);
             }
         }
         public override IEnumerable<ICatalog> GetCatalogsList()
         {
             var cats = from catalog 
                        in dataContext.catalogs 
-                       select Entry(catalog);
+                       select EntryToObj(catalog);
             return cats;
         }
 
@@ -144,14 +144,14 @@ namespace Data.CodeImplementation
             }
             else
             {
-                return Entry(User);
+                return EntryToObj(User);
             }
         }
         public override IEnumerable<IUser> GetUsersList()
         {
             var Users = from user
                        in dataContext.users
-                       select Entry(user);
+                       select EntryToObj(user);
             return Users;
         }
 
@@ -188,14 +188,14 @@ namespace Data.CodeImplementation
             }
             else
             {
-                return Entry(State);
+                return EntryToObj(State);
             }
         }
         public override IEnumerable<IState> GetStatesList()
         {
             var States = from state
                         in dataContext.states
-                        select Entry(state);
+                        select EntryToObj(state);
             return States;
         }
         public override void ChangeQuantity(int stateId, int change)
@@ -229,7 +229,7 @@ namespace Data.CodeImplementation
         {
             var Events = from @event
                          in dataContext.events
-                         select Entry(@event);
+                         select EntryToObj(@event);
             return Events;
         }
 
