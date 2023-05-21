@@ -46,7 +46,9 @@
     <Compile Include="API\IService.cs" />
     <Compile Include="API\IStateServiceData.cs" />
     <Compile Include="API\IUserServiceData.cs" />
+    <Compile Include="CodeImplementation\CatalogServiceData.cs" />
     <Compile Include="CodeImplementation\Service.cs" />
+    <Compile Include="CodeImplementation\UserServiceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

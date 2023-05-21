@@ -1,5 +1,6 @@
 ﻿using Data.API;
 using System.Collections.Generic;
+using Services.API;
 
 namespace Services.CodeImplementation
 {
@@ -13,6 +14,11 @@ namespace Services.CodeImplementation
         }
 
         //------------------------------------------------------
+        private ICatalogServiceData CatalogToService(ICatalog c)
+        {
+            return c == null ? null : new CatalogServiceData(c.Id, c.Name, c.Price);
+        }
+
         public override void AddCatalog(int id, string name, decimal price)
         {
             repository.AddCatalog(id, name, price);
@@ -25,16 +31,25 @@ namespace Services.CodeImplementation
         {
             repository.UpdateCatalog(id, name, price);
         }
-        public override ICatalog GetCatalog(int id)
+        public override ICatalogServiceData GetCatalog(int id)
         {
-            return repository.GetCatalog(id);
+            return CatalogToService(repository.GetCatalog(id));
         }
-        public override IEnumerable<ICatalog> GetCatalogsList()
+        public override IEnumerable<ICatalogServiceData> GetCatalogsList()
         {
-            return repository.GetCatalogsList();
+            List<ICatalogServiceData> catalogs = new List<ICatalogServiceData>();
+            foreach (ICatalog c in repository.GetCatalogsList()) 
+            { 
+                catalogs.Add(CatalogToService(c));
+            }
+            return catalogs;
         }
 
         //------------------------------------------------------
+        private IUserServiceData UserToService(IUser u)
+        {
+            return u == null ? null : new UserServiceData(u.Id, u.FirstName, u.LastName, u.Address);
+        }
         public override void AddUser(int id, string firstName, string lastName, string address)
         {
             repository.AddUser(id, firstName, lastName, address);
@@ -47,13 +62,18 @@ namespace Services.CodeImplementation
         {
             repository.UpdateUser(id, firstName, lastName, address);
         }
-        public override IUser GetUser(int id)
+        public override IUserServiceData GetUser(int id)
         {
-            return repository.GetUser(id);
+            return UserToService(repository.GetUser(id));
         }
-        public override IEnumerable<IUser> GetUsersList()
+        public override IEnumerable<IUserServiceData> GetUsersList()
         {
-            return repository.GetUsersList();
+            List<IUserServiceData> users = new List<IUserServiceData>();
+            foreach (IUser u in repository.GetUsersList())
+            {
+                users.Add(UserToService(u));
+            }
+            return users;
         }
 
         //------------------------------------------------------
