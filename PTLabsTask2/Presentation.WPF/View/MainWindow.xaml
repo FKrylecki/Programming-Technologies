@@ -6,35 +6,71 @@
         xmlns:local="clr-namespace:Presentation.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type Control}" x:Key="baseStyle">
+            <Setter Property="FontSize" Value="50" />
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseStyle}"></Style>
+        <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource baseStyle}"></Style>
+        <!-- ComboBox, RadioButton, CheckBox, etc... -->
+    </Window.Resources>
     <Grid Margin="0,0,0,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView Name="UserGrid" Grid.Row="1" Margin="4,178,12,13"  ItemsSource="{Binding Catalogs}"  >
-            <ListView.View>
-                <GridView x:Name="grdTest">
-                    <GridViewColumn Header="UserId" DisplayMemberBinding="{Binding Id}"  Width="50"/>
-                    <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding Name}"  Width="80" />
-                    <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding Price}" Width="100" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="80,7,0,0" Name="txtUserId" VerticalAlignment="Top" Width="178" Text="{Binding ElementName=UserGrid,Path=SelectedItem.UserId}" />
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="80,35,0,0" Name="txtFirstName" VerticalAlignment="Top" Width="178" Text="{Binding ElementName=UserGrid,Path=SelectedItem.FirstName}" />
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="80,62,0,0" Name="txtLastName" VerticalAlignment="Top" Width="178" Text="{Binding ElementName=UserGrid,Path=SelectedItem.LastName}" />
-        <Label Content="UserId" Grid.Row="1" HorizontalAlignment="Left" Margin="12,12,0,274" Name="label1" />
-        <Label Content="Last Name" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="12,60,0,0" Name="label2" VerticalAlignment="Top" />
-        <Label Content="First Name" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="12,35,0,0" Name="label3" VerticalAlignment="Top" />
-        <Button Content="Update" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="310,40,0,0" Name="btnUpdate"   
-                VerticalAlignment="Top" Width="141"  
-                Command="{Binding Path=UpdateCommad}"  />
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="80,143,0,0" x:Name="txtCity" VerticalAlignment="Top" Width="178" Text="{Binding SelectedItem.City, ElementName=UserGrid}" />
-        <Label Content="Country" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="12,141,0,0" x:Name="label2_Copy" VerticalAlignment="Top" />
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="80,88,0,0" x:Name="txtCountry" VerticalAlignment="Top" Width="178" Text="{Binding SelectedItem.Country, ElementName=UserGrid}" />
-        <Label Content="City" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="12,86,0,0" x:Name="label2_Copy1" VerticalAlignment="Top" />
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="80,115,0,0" x:Name="txtSTate" VerticalAlignment="Top" Width="178" Text="{Binding SelectedItem.State, ElementName=UserGrid}" />
-        <Label Content="State" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="12,113,0,0" x:Name="label2_Copy2" VerticalAlignment="Top" />
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="321,22,0,0" Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.168"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform><Run Language="pl-pl" Text="Welcome to our Furniture Shop!"/></TextBlock>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="43" Margin="305,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="203"/>
+        <Button Content="Users" HorizontalAlignment="Left" Margin="145,170,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Catalogs" HorizontalAlignment="Left" Margin="501,168,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.172"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="States" HorizontalAlignment="Left" Margin="140,300,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.172"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Events" HorizontalAlignment="Left" Margin="528,301,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.172"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Window>

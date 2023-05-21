@@ -14,7 +14,7 @@ namespace Presentation.WPF.ViewModel
     {
         //private readonly IModel ?model;
         private IEnumerable<ICatalogModelData> catalogList;
-        private ICommand ?mUpdater;
+        private ICommand? Command1 { get; set; }
 
         public ViewModelMain()
         {
@@ -37,7 +37,7 @@ namespace Presentation.WPF.ViewModel
         }
 
 
-        public ICommand UpdateCommand
+        /*public ICommand UpdateCommand
         {
             get
             {
@@ -49,9 +49,9 @@ namespace Presentation.WPF.ViewModel
             {
                 mUpdater = value;
             }
-        }
+        }*/
 
-        private class Updater : ICommand
+        /*private class Updater : ICommand
         {
             public bool CanExecute(object? parameter)
             {
@@ -65,6 +65,6 @@ namespace Presentation.WPF.ViewModel
 
             }
 
-        }
+        }*/
     }
 }
