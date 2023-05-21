@@ -17,14 +17,14 @@ namespace Presentation.Model
             service = _service ?? IService.CreateNewService();
         }
 
-        ICatalog IModel.GetCatalog(int id)
+        public ICatalog GetCatalog(int id)
         {
-            throw new NotImplementedException();
+            return service.GetCatalog(id);
         }
 
-        IEnumerable<ICatalog> IModel.GetCatalogsList()
+        public IEnumerable<ICatalog> GetCatalogsList()
         {
-            throw new NotImplementedException();
+            return service.GetCatalogsList();
         }
     }
 }

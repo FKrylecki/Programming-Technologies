@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ICatalogServiceData.cs" />
+    <Compile Include="API\IEventServiceData.cs" />
     <Compile Include="API\IService.cs" />
+    <Compile Include="API\IStateServiceData.cs" />
+    <Compile Include="API\IUserServiceData.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CodeImplementation\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
