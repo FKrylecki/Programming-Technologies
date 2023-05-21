@@ -51,15 +51,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Class1.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -69,11 +65,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\API\ICatalogModelData.cs" />
-    <Compile Include="Model\API\IEventModelData.cs" />
+    <Compile Include="Model\API\ICatalogData_M.cs" />
+    <Compile Include="Model\API\IEventData_M.cs" />
     <Compile Include="Model\API\IModel.cs" />
-    <Compile Include="Model\API\IStateModelData.cs" />
-    <Compile Include="Model\API\IUserModelData.cs" />
+    <Compile Include="Model\API\IStateData_M.cs" />
+    <Compile Include="Model\API\IUserData_M.cs" />
     <Compile Include="Model\CodeImplementation\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
