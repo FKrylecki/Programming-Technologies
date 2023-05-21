@@ -12,9 +12,9 @@ namespace Presentation.WPF.ViewModel
 {
     internal class ViewModelMain
     {
-        private readonly IModel model;
+        //private readonly IModel ?model;
         private IEnumerable<ICatalogModelData> catalogList;
-        private ICommand mUpdater;
+        private ICommand ?mUpdater;
 
         public ViewModelMain()
         {
@@ -53,14 +53,14 @@ namespace Presentation.WPF.ViewModel
 
         private class Updater : ICommand
         {
-            public bool CanExecute(object parameter)
+            public bool CanExecute(object? parameter)
             {
                 return true;
             }
 
-            public event EventHandler CanExecuteChanged;
+            public event EventHandler? CanExecuteChanged;
 
-            public void Execute(object parameter)
+            public void Execute(object? parameter)
             {
 
             }
