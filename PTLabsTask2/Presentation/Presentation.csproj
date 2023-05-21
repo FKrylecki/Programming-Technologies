@@ -55,6 +55,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\CodeImplementation\CatalogModelData.cs" />
+    <Compile Include="Model\CodeImplementation\EventModelData.cs" />
+    <Compile Include="Model\CodeImplementation\StateModelData.cs" />
     <Compile Include="Model\CodeImplementation\UserModelData.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\Window1.xaml.cs">
