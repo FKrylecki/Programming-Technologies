@@ -95,6 +95,10 @@ namespace Services.CodeImplementation
         }
 
         //------------------------------------------------------
+        private IEventServiceData EventToService(IEvent e)
+        {
+            return e == null ? null : new EventServiceData(e.Id, e.StateId, e.UserId, e.QuantityChanged);
+        }
         private void AddEvent(int id, int stateId, int userId, int QuantityChanged)
         {
             repository.AddEvent(id, stateId, userId, QuantityChanged);
@@ -103,9 +107,14 @@ namespace Services.CodeImplementation
         {
             repository.RemoveEvent(id);
         }
-        public override IEnumerable<IEvent> GetEventsList()
+        public override IEnumerable<IEventServiceData> GetEventsList()
         {
-            return repository.GetEventsList();
+            List<IEventServiceData> events = new List<IEventServiceData>();
+            foreach (IEvent e in repository.GetEventsList())
+            {
+                events.Add(EventToService(e));
+            }
+            return events;
         }
         public override void SellItem(int id, int stateId, int userId, int QuantityChanged)
         {
