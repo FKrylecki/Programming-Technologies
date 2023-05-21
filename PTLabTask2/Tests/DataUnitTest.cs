@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 
-namespace Tests
+namespace DataTests
 {
     [TestClass]
     public class DataUnitTest
