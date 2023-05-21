@@ -9,8 +9,8 @@ namespace Presentation.Model.API
 {
     public interface IModel
     {
-        ICatalogData_M GetCatalog(int id);
-        IEnumerable<ICatalogData_M> GetCatalogsList();
+        ICatalogModelData GetCatalog(int id);
+        IEnumerable<ICatalogModelData> GetCatalogsList();
 
         void UpdateCatalog(int id, string name, decimal price);
     }

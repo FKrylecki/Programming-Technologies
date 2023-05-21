@@ -11,7 +11,7 @@ namespace Presentation.ViewModel
     internal class ViewModel
     {
         private readonly IModel model;
-        private IEnumerable<ICatalogData_M> catalogList;
+        private IEnumerable<ICatalogModelData> catalogList;
         private ICommand mUpdater;
 
         public ViewModel()
@@ -20,7 +20,7 @@ namespace Presentation.ViewModel
            
         }
 
-        public IEnumerable<ICatalogData_M> Catalogs
+        public IEnumerable<ICatalogModelData> Catalogs
         {
             get { return catalogList; }
             set { catalogList = value; }

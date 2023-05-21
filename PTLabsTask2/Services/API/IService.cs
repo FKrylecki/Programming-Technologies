@@ -22,8 +22,8 @@ public abstract class  IService
     //---------------------------------------------------
     public abstract void AddState(int id, int quantity, int catalogId);
     public abstract void RemoveState(int id);
-    public abstract IState GetState(int id);
-    public abstract IEnumerable<IState> GetStatesList();
+    public abstract IStateServiceData GetState(int id);
+    public abstract IEnumerable<IStateServiceData> GetStatesList();
 
     //---------------------------------------------------
     public abstract void RemoveEvent(int id);
