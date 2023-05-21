@@ -51,6 +51,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\CodeImplementation\CatalogModelData.cs" />
+    <Compile Include="Model\CodeImplementation\UserModelData.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
