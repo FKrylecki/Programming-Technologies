@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8280928-E96D-40E4-87DA-807540E28EE5}</ProjectGuid>
+    <ProjectGuid>{0C4D8911-D916-4B10-A46A-8DAB2363ABBE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ServiceTests</RootNamespace>
-    <AssemblyName>ServiceTests</AssemblyName>
+    <RootNamespace>ServicesTests</RootNamespace>
+    <AssemblyName>ServicesTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,19 +49,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServiceUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{f8a169de-901d-4824-a548-06dd8cfe31e1}</Project>
+      <Project>{8d85be00-ac84-45e3-96bd-c45097db0ccf}</Project>
       <Name>Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{bf1ed8aa-106b-4585-b8f3-37362937ae4d}</Project>
+      <Project>{34bf80f8-f16c-4dd8-9c68-55695d68a6b3}</Project>
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>

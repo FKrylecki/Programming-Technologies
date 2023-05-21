@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6EABD316-5D89-45A5-A06B-1DDBC7BDD5F1}</ProjectGuid>
+    <ProjectGuid>{DCB440D0-E9FB-4409-AD4E-4D7242FFE4DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>DataTests</RootNamespace>
+    <AssemblyName>DataTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{f8a169de-901d-4824-a548-06dd8cfe31e1}</Project>
+      <Project>{8d85be00-ac84-45e3-96bd-c45097db0ccf}</Project>
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>

@@ -4,8 +4,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67CDF0A6-8270-433A-B1BC-C1D8CF26E220}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{CFCED180-6AA4-419C-8A5E-3C06B0E886CB}</ProjectGuid>
+    <OutputType>library</OutputType>
     <RootNamespace>Presentation</RootNamespace>
     <AssemblyName>Presentation</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,10 +51,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\API\ICatalogModelData.cs" />
-    <Compile Include="Model\API\IEventModelData.cs" />
-    <Compile Include="Model\API\IStateModelData.cs" />
-    <Compile Include="Model\API\IUserModelData.cs" />
     <Compile Include="ViewModel\Class1.cs" />
     <Compile Include="View\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -66,13 +59,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Window1.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Window1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\API\ICatalogModelData.cs" />
+    <Compile Include="Model\API\IEventModelData.cs" />
     <Compile Include="Model\API\IModel.cs" />
+    <Compile Include="Model\API\IStateModelData.cs" />
+    <Compile Include="Model\API\IUserModelData.cs" />
     <Compile Include="Model\CodeImplementation\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -97,15 +98,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{f8a169de-901d-4824-a548-06dd8cfe31e1}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{bf1ed8aa-106b-4585-b8f3-37362937ae4d}</Project>
+      <Project>{34bf80f8-f16c-4dd8-9c68-55695d68a6b3}</Project>
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
