@@ -77,6 +77,10 @@ namespace Services.CodeImplementation
         }
 
         //------------------------------------------------------
+        private IStateServiceData StateToService(IState s)
+        {
+            return s == null ? null : new StateServiceData(s.StateId, s.Quantity, s.Catalog);
+        }
         public override void AddState(int id, int quantity, int catalogId)
         {
             repository.AddState(id, quantity, catalogId);
@@ -85,13 +89,18 @@ namespace Services.CodeImplementation
         {
             repository.RemoveState(id);
         }
-        public override IState GetState(int id)
+        public override IStateServiceData GetState(int id)
         {
-            return repository.GetState(id);
+            return StateToService(repository.GetState(id));
         }
-        public override IEnumerable<IState> GetStatesList()
+        public override IEnumerable<IStateServiceData> GetStatesList()
         {
-            return repository.GetStatesList();
+            List<IStateServiceData> states = new List<IStateServiceData>();
+            foreach (IState s in repository.GetStatesList())
+            {
+                states.Add(StateToService(s));
+            }
+            return states;
         }
 
         //------------------------------------------------------

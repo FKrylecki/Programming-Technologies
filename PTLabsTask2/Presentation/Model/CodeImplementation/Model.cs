@@ -16,14 +16,14 @@ namespace Presentation.Model
             service = _service ?? IService.CreateNewService();
         }
 
-        public ICatalogData_M GetCatalog(int id)
+        public ICatalogModelData GetCatalog(int id)
         {
-            return (ICatalogData_M)service.GetCatalog(id);
+            return (ICatalogModelData)service.GetCatalog(id);
         }
 
-        public IEnumerable<ICatalogData_M> GetCatalogsList()
+        public IEnumerable<ICatalogModelData> GetCatalogsList()
         {
-            return (IEnumerable<ICatalogData_M>)service.GetCatalogsList();
+            return (IEnumerable<ICatalogModelData>)service.GetCatalogsList();
         }
 
         public void UpdateCatalog(int id, string name, decimal price)

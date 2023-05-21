@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace Presentation.Model.API
 {
-    public interface IStateData_M
+    public interface IEventModelData
     {
+        int Id
+        {
+            get;
+        }
         int StateId
         {
             get;
-            set;
         }
-        int Quantity
+        int UserId
         {
             get;
-            set;
         }
-        int Catalog
+        int QuantityChanged
         {
             get;
             set;

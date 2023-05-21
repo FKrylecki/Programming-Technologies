@@ -6,24 +6,19 @@ using System.Threading.Tasks;
 
 namespace Presentation.Model.API
 {
-    public interface IUserData_M
+    public interface ICatalogModelData
     {
         int Id
         {
             get;
             set;
         }
-        string FirstName
+        string Name
         {
             get;
             set;
         }
-        string LastName
-        {
-            get;
-            set;
-        }
-        string Address
+        decimal Price
         {
             get;
             set;
