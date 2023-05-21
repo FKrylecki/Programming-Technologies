@@ -30,6 +30,7 @@ namespace Data.API
         public abstract void AddEvent(int id, int stateId, int userId, int QuantityChanged);
         public abstract void RemoveEvent(int id);
         public abstract IEnumerable<IEvent> GetEventsList();
+        public abstract void Delete();
 
         //---------------------------------------------------
 

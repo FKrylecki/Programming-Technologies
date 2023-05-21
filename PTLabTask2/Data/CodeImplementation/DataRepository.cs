@@ -53,19 +53,13 @@ namespace Data.CodeImplementation
         }
         public override void RemoveCatalog(int id)
         {
-            var cat = (from catalog
-                       in dataContext.catalogs
-                       where catalog.id == id
-                       select catalog).FirstOrDefault();
+            var cat = dataContext.catalogs.SingleOrDefault(catalog => catalog.id == id);
             dataContext.catalogs.DeleteOnSubmit(cat);
             dataContext.SubmitChanges();
         }
         public override void UpdateCatalog(int id, string name, decimal price)
         {
-            var cat = (from catalog
-                       in dataContext.catalogs
-                       where catalog.id == id
-                       select catalog).FirstOrDefault();
+            var cat = dataContext.catalogs.SingleOrDefault(catalog => catalog.id == id);
             if (cat != null)
             {
                 cat.name = name;
@@ -111,19 +105,13 @@ namespace Data.CodeImplementation
         }
         public override void RemoveUser(int id)
         {
-            var User = (from user
-                       in dataContext.users
-                       where user.id == id
-                       select user).FirstOrDefault();
+            var User = dataContext.users.SingleOrDefault(user => user.id == id);
             dataContext.users.DeleteOnSubmit(User);
             dataContext.SubmitChanges();
         }
         public override void UpdateUser(int id, string firstName, string lastName, string address)
         {
-            var User = (from user
-                       in dataContext.users
-                       where user.id == id
-                       select user).FirstOrDefault();
+            var User = dataContext.users.SingleOrDefault(user => user.id == id);
             if (User != null)
             {
                 User.firstName = firstName;
@@ -169,19 +157,13 @@ namespace Data.CodeImplementation
         }
         public override void RemoveState(int id)
         {
-            var State = (from state
-                        in dataContext.states
-                        where state.id == id
-                        select state).FirstOrDefault();
+            var State = dataContext.states.SingleOrDefault(state => state.id == id);
             dataContext.states.DeleteOnSubmit(State);
             dataContext.SubmitChanges();
         }
         public override IState GetState(int id)
         {
-           var State = (from state
-                        in dataContext.states
-                        where state.id == id
-                        select state).FirstOrDefault();
+            var State = dataContext.states.SingleOrDefault(state => state.id == id);
             if (State == null)
             {
                 return null;
@@ -200,7 +182,9 @@ namespace Data.CodeImplementation
         }
         public override void ChangeQuantity(int stateId, int change)
         {
-            GetState(stateId).Quantity += change;
+            var State = dataContext.states.SingleOrDefault(state => state.id == stateId);
+            State.quantity += change;
+            dataContext.SubmitChanges();
         }
 
         //---------------------------------------------------
@@ -213,15 +197,13 @@ namespace Data.CodeImplementation
                 userId = userId,
                 quantityChanged = QuantityChanged
             };
+            ChangeQuantity(stateId, QuantityChanged);
             dataContext.events.InsertOnSubmit(Event);
             dataContext.SubmitChanges();
         }
         public override void RemoveEvent(int id)
         {
-            var Event = (from @event
-                        in dataContext.events
-                        where @event.id == id
-                        select @event).FirstOrDefault();
+            var Event = dataContext.events.SingleOrDefault(@event => @event.id == id);
             dataContext.events.DeleteOnSubmit(Event);
             dataContext.SubmitChanges();
         }
@@ -231,6 +213,13 @@ namespace Data.CodeImplementation
                          in dataContext.events
                          select EntryToObj(@event);
             return Events;
+        }
+        public override void Delete()
+        {
+            dataContext.ExecuteCommand("DELETE FROM events");
+            dataContext.ExecuteCommand("DELETE FROM states");
+            dataContext.ExecuteCommand("DELETE FROM users");
+            dataContext.ExecuteCommand("DELETE FROM catalogs");
         }
 
         //---------------------------------------------------
