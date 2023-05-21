@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\IService.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="CodeImplementation\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
