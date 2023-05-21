@@ -27,7 +27,7 @@ public abstract class  IService
 
     //---------------------------------------------------
     public abstract void RemoveEvent(int id);
-    public abstract IEnumerable<IEvent> GetEventsList();
+    public abstract IEnumerable<IEventServiceData> GetEventsList();
     public abstract void SellItem(int id, int stateId, int userId, int QuantityChanged);
     public abstract void ReturnItem(int id, int stateId, int userId, int QuantityChanged);
     public abstract void SupplyItem(int id, int stateId, int userId, int QuantityChanged);
