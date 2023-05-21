@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="C:\Users\Andre\Desktop\POLITECHNIKA\Programming Technologies\Programming-Technologies2\PTLabsTask%28Temp NEW%29.sln" Link="PTLabsTask%28Temp NEW%29.sln" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
