@@ -60,7 +60,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\API\IModel.cs" />
+    <Compile Include="Model\CodeImplementation\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
