@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.API;
 using Presentation.Model.API;
 
 namespace Presentation.Model
@@ -17,14 +16,19 @@ namespace Presentation.Model
             service = _service ?? IService.CreateNewService();
         }
 
-        public ICatalog GetCatalog(int id)
+        public ICatalogData_M GetCatalog(int id)
         {
-            return service.GetCatalog(id);
+            return (ICatalogData_M)service.GetCatalog(id);
         }
 
-        public IEnumerable<ICatalog> GetCatalogsList()
+        public IEnumerable<ICatalogData_M> GetCatalogsList()
         {
-            return service.GetCatalogsList();
+            return (IEnumerable<ICatalogData_M>)service.GetCatalogsList();
+        }
+
+        public void UpdateCatalog(int id, string name, decimal price)
+        {
+            service.UpdateCatalog(id, name, price);
         }
     }
 }

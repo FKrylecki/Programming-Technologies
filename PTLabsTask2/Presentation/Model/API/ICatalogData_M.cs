@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Presentation.Model.API
 {
-    public interface IStateModelData
+    public interface ICatalogData_M
     {
-        int StateId
+        int Id
         {
             get;
             set;
         }
-        int Quantity
+        string Name
         {
             get;
             set;
         }
-        int Catalog
+        decimal Price
         {
             get;
             set;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.Model.API
 {
-    public interface IEventModelData
+    public interface IEventData_M
     {
         int Id
         {
@@ -26,5 +26,4 @@ namespace Presentation.Model.API
             set;
         }
     }
-}
 }
