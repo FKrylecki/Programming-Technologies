@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="DataUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -60,10 +59,6 @@
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{f8a169de-901d-4824-a548-06dd8cfe31e1}</Project>
       <Name>Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{bf1ed8aa-106b-4585-b8f3-37362937ae4d}</Project>
-      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
