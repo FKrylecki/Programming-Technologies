@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.WPF.ViewModel
 {
-    public class VMStates : PropertyChange
+    public class VMStates : VMBase
     {
         private VMCatalogs _selectedEntry;
     }

@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Presentation.WPF"
         xmlns:vmodel="clr-namespace:Presentation.WPF.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
     <Window.DataContext>
         <vmodel:ViewModelMain/>
     </Window.DataContext>
     <Window.Resources>
         <Style TargetType="{x:Type Control}" x:Key="baseStyle">
-            <Setter Property="FontSize" Value="50" />
+            <Setter Property="FontSize" Value="20" />
         </Style>
         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
@@ -20,61 +20,13 @@
         <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource baseStyle}"></Style>
         <!-- ComboBox, RadioButton, CheckBox, etc... -->
     </Window.Resources>
-    <Grid Margin="0,0,0,20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="321,22,0,0" Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="0.5,0.5">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.168"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform><Run Language="pl-pl" Text="Welcome to our Furniture Shop!"/></TextBlock>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="43" Margin="305,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="203"/>
-        <Button Content="Users" HorizontalAlignment="Left" Margin="145,170,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Content="Catalogs" HorizontalAlignment="Left" Margin="501,168,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.172"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Content="States" HorizontalAlignment="Left" Margin="140,300,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.172"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Content="Events" HorizontalAlignment="Left" Margin="528,301,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.172"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="400" Margin="0,10,0,0" VerticalAlignment="Top" Width="780">
+            <UserControl Content="{Binding SelectedVm}"/>
+        </Border>
+        <Button Content="Users" Command="{Binding SwitchViewCommand}" CommandParameter="UserListView" HorizontalAlignment="Left" Margin="10,517,0,10" Width="96"/>
+        <Button Content="Products" Command="{Binding SwitchViewCommand}" CommandParameter="ProductListView" HorizontalAlignment="Left" Margin="111,517,0,10" Width="96"/>
+        <Button Content="Events" Command="{Binding SwitchViewCommand}" CommandParameter="EventListView" HorizontalAlignment="Left" Margin="212,517,0,10" Width="96"/>
+
     </Grid>
 </Window>

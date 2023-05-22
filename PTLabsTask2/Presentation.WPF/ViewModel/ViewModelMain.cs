@@ -10,11 +10,13 @@ using System.Windows.Input;
 
 namespace Presentation.WPF.ViewModel
 {
-    internal class ViewModelMain
+    internal class ViewModelMain : VMBase
     {
         //private readonly IModel ?model;
         private IEnumerable<ICatalogModelData> catalogList;
         private ICommand? Command1 { get; set; }
+        private ICommand _SwitchViewCommand;
+        private VMBase _selectedVm;
 
         public ViewModelMain()
         {
@@ -30,10 +32,32 @@ namespace Presentation.WPF.ViewModel
 
         }
 
+        public VMBase SelectedVm
+        {
+            get => _selectedVm;
+            set
+            {
+                _selectedVm = value;
+                OnPropertyChanged(nameof(SelectedVm));
+            }
+        }
+
         public IEnumerable<ICatalogModelData> Catalogs
         {
             get { return catalogList; }
             set { catalogList = value; }
+        }
+
+        public ICommand SwitchViewCommand => _SwitchViewCommand;
+
+        public void SwitchView(string view)
+        {
+            switch (view)
+            {
+                case "ProductListView":
+                    SelectedVm = new VMCatalogList();
+                    break;
+            }
         }
 
 

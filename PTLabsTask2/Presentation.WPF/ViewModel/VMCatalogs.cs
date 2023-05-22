@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.WPF.ViewModel
 {
-    public class VMCatalogs : PropertyChange
+    public class VMCatalogs : VMBase
     {
         private readonly IModel? Cmodel;
         private int id;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.WPF.ViewModel
 {
-    public class VMEvents : PropertyChange
+    public class VMEvents : VMBase
     {
 
     }

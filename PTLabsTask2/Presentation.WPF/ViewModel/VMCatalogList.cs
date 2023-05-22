@@ -1,22 +1,19 @@
 ﻿using Presentation.WPF.Model.API;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Presentation.WPF.ViewModel
 {
-    internal class VMCatalogList : PropertyChange
+    public class VMCatalogList : VMBase
     {
         private List<ICatalogModelData> catalogList;
         private IModel model;
         private VMCatalogs selectedEntry;
         private int selectedCatalog;
 
-        public VMCatalogList(IModel? _model = default)
+        public VMCatalogList()
         {
-            model = _model ?? IModel.CreateNewModel();
+            model = IModel.CreateNewModel();
             catalogList = model.GetCatalogsList();
         }
         public int SelectedCatalog
