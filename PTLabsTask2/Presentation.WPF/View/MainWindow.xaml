@@ -18,7 +18,6 @@
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
         <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseStyle}"></Style>
         <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource baseStyle}"></Style>
-        <!-- ComboBox, RadioButton, CheckBox, etc... -->
     </Window.Resources>
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="400" Margin="0,10,0,0" VerticalAlignment="Top" Width="780">

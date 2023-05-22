@@ -11,8 +11,12 @@ namespace Presentation.WPF.ViewModel
     {
         private readonly Predicate<object> _canExecute;
         private readonly Action<object> _execute;
+        private Action<object> value;
 
-        public RelayCommand(Predicate<object> canExecute, Action<object> execute)
+        public RelayCommand(Action<object> value) : this(value, null)
+        {}
+
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
             _canExecute = canExecute;
             _execute = execute;
@@ -26,12 +30,12 @@ namespace Presentation.WPF.ViewModel
 
         public bool CanExecute(object? parameter)
         {
-            return _canExecute(parameter);
+            return _canExecute?.Invoke(parameter) ?? true;
         }
 
         public void Execute(object? parameter)
         {
-            _execute(parameter);
+            _execute.Invoke(parameter);
         }
     }
 }

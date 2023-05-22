@@ -1,35 +1,20 @@
 ﻿using Data;
 using Presentation.WPF.Model.API;
-using Presentation.WPF.Model.CodeImplementation;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Presentation.WPF.ViewModel
 {
     internal class ViewModelMain : VMBase
     {
-        //private readonly IModel ?model;
-        private IEnumerable<ICatalogModelData> catalogList;
-        private ICommand? Command1 { get; set; }
+
         private ICommand _SwitchViewCommand;
         private VMBase _selectedVm;
 
-        public ViewModelMain()
+        public ViewModelMain(VMCatalogList defaultSelection = default)
         {
-            //catalogList = model.GetCatalogsList();
-            catalogList = new List<ICatalogModelData>
-            {
-                new CatalogModelData(1,"Raj",100),
-                new CatalogModelData(2,"AAAAAAAAAAAA",100),
-                new CatalogModelData(3,"BBBBBBBB",100),
-                new CatalogModelData(4,"CCCCCCCC",200),
-               
-            };
-
+            SelectedVm = defaultSelection ?? new VMCatalogList();
+            _SwitchViewCommand = new RelayCommand(view  => { SwitchView(view.ToString()); });
         }
 
         public VMBase SelectedVm
@@ -40,12 +25,6 @@ namespace Presentation.WPF.ViewModel
                 _selectedVm = value;
                 OnPropertyChanged(nameof(SelectedVm));
             }
-        }
-
-        public IEnumerable<ICatalogModelData> Catalogs
-        {
-            get { return catalogList; }
-            set { catalogList = value; }
         }
 
         public ICommand SwitchViewCommand => _SwitchViewCommand;
