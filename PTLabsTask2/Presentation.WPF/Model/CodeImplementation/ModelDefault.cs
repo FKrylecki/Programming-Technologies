@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Presentation.WPF.Model.CodeImplementation
 {
-    internal class Model : IModel
+    internal class ModelDefault : IModel
     {
         private IService service;
 
-        internal Model(IService? _service = default)
+        internal ModelDefault(IService? _service = default)
         {
             service = _service ?? IService.CreateNewService();
         }
@@ -22,9 +22,9 @@ namespace Presentation.WPF.Model.CodeImplementation
             return (ICatalogModelData)service.GetCatalog(id);
         }
 
-        public IEnumerable<ICatalogModelData> GetCatalogsList()
+        public List<ICatalogModelData> GetCatalogsList()
         {
-            return (IEnumerable<ICatalogModelData>)service.GetCatalogsList();
+            return (List<ICatalogModelData>)service.GetCatalogsList();
         }
 
         public void UpdateCatalog(int id, string name, decimal price)
@@ -43,9 +43,9 @@ namespace Presentation.WPF.Model.CodeImplementation
         {
             return (IUserModelData)service.GetUser(id);
         }
-        public IEnumerable<IUserModelData> GetUsersList()
+        public List<IUserModelData> GetUsersList()
         {
-            return (IEnumerable<IUserModelData>)service.GetUsersList();
+            return (List<IUserModelData>)service.GetUsersList();
         }
         public void UpdateUser(int id, string firstname, string lastname, string address)
         {
@@ -63,9 +63,9 @@ namespace Presentation.WPF.Model.CodeImplementation
         {
             return (IStateModelData)service.GetState(id);
         }
-        public IEnumerable<IStateModelData> GetStatesList()
+        public List<IStateModelData> GetStatesList()
         {
-            return (IEnumerable<IStateModelData>)service.GetStatesList();
+            return (List<IStateModelData>)service.GetStatesList();
         }
         public void RemoveState(int id)
         {

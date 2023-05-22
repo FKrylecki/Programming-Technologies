@@ -8,6 +8,6 @@ namespace Presentation.WPF.ViewModel
 {
     public class VMStates : PropertyChange
     {
-
+        private VMCatalogs _selectedEntry;
     }
 }
