@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.WPF.Model.CodeImplementation
 {
-    internal class CatalogModelData : ICatalogModelData
+    public class CatalogModelData : ICatalogModelData
     {
         public CatalogModelData(int id, string name, decimal price)
         {

@@ -18,10 +18,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <GroupBox Header="Selected Entry">
-                <ContentControl Content="{Binding catalogList}" />
+
             </GroupBox>
             <GroupBox Grid.Row="1">
-                <ListView Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,5" ItemsSource="{Binding CatalogList}" SelectedIndex="{Binding SelectedCatalog}">
+                <ListView Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,5" ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedCatalog}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Id" Width="100" DisplayMemberBinding="{Binding Id}"/>

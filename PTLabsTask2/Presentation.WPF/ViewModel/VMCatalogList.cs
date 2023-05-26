@@ -1,4 +1,5 @@
 ﻿using Presentation.WPF.Model.API;
+using Presentation.WPF.Model.CodeImplementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,48 +10,27 @@ namespace Presentation.WPF.ViewModel
 {
     public class VMCatalogList : PropertyChange
     {
-        public List<ICatalogModelData> catalogList;
-        public IModel model;
-        public VMCatalogs selectedEntry;
-        public int selectedCatalog;
 
-        public VMCatalogList()
+        private IService serviceData;
+        public VMCatalogList(IService _service = default)
         {
+            //serviceData = _service ?? IService.CreateNewService(); // THROWS A Could not load file or assembly 'System.Data.Linq, Version=4.0.0.0, Culture=neutral EXCEPTION IN DATA LAYER
+        }
 
-        }
-        public VMCatalogList(IModel? _model = default)
+        public List<ICatalogModelData> Items
         {
-            model = _model ?? IModel.CreateNewModel();
-            catalogList = model.GetCatalogsList();
-        }
-        public int SelectedCatalog
-        {
-            get => selectedCatalog;
-            set
-            {
-                selectedCatalog = value;
-                OnPropertyChanged(nameof(SelectedCatalog));
-                try
+            get {
+                // Mock data (works)
+                return new List<ICatalogModelData>()
                 {
-                    selectedEntry = new VMCatalogs(catalogList[value]);
-                    OnPropertyChanged(nameof(SelectedEntry));
-
-                } catch {}
-            }
-
-        }
-        public VMCatalogs SelectedEntry
-        {
-            get => selectedEntry;
-            set
-            {
-                selectedEntry = value;
-                OnPropertyChanged(nameof(SelectedEntry));
+                    new CatalogModelData(1, "Sample 1", 100),
+                    new CatalogModelData(2, "Sample 1", 200),
+                    new CatalogModelData(3, "Sample 1", 200)
+                };
+                // Real data (can not retrive -> exception error id data layer as mentioned above.
+                return (List<ICatalogModelData>)serviceData.GetCatalogsList();
             }
         }
-
-
-
 
     }
 
