@@ -10,61 +10,27 @@ using System.Windows.Input;
 
 namespace Presentation.WPF.ViewModel
 {
-    internal class ViewModelMain
+    public class ViewModelMain : PropertyChange
     {
-        //private readonly IModel ?model;
-        private IEnumerable<ICatalogModelData> catalogList;
-        private ICommand? Command1 { get; set; }
+        public ICommand? Command1 { get; set; }
+        public PropertyChange PC;
+
+        private PropertyChange _selectedViewModel;
+        public PropertyChange SelectedViewModel
+        {
+            get { return _selectedViewModel; }
+            set
+            {
+                _selectedViewModel = value;
+                OnPropertyChanged(nameof(SelectedViewModel));
+            }
+        }
+
+        public ICommand UpdateViewCommand { get; set; }
 
         public ViewModelMain()
         {
-            //catalogList = model.GetCatalogsList();
-            catalogList = new List<ICatalogModelData>
-            {
-                new CatalogModelData(1,"Raj",100),
-                new CatalogModelData(2,"AAAAAAAAAAAA",100),
-                new CatalogModelData(3,"BBBBBBBB",100),
-                new CatalogModelData(4,"CCCCCCCC",200),
-               
-            };
-
+            UpdateViewCommand = new RelayCommand(this);
         }
-
-        public IEnumerable<ICatalogModelData> Catalogs
-        {
-            get { return catalogList; }
-            set { catalogList = value; }
-        }
-
-
-        /*public ICommand UpdateCommand
-        {
-            get
-            {
-                if (mUpdater == null)
-                    mUpdater = new Updater();
-                return mUpdater;
-            }
-            set
-            {
-                mUpdater = value;
-            }
-        }*/
-
-        /*private class Updater : ICommand
-        {
-            public bool CanExecute(object? parameter)
-            {
-                return true;
-            }
-
-            public event EventHandler? CanExecuteChanged;
-
-            public void Execute(object? parameter)
-            {
-
-            }
-
-        }*/
     }
 }

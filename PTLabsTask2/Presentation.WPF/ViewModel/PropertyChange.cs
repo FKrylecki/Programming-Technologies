@@ -13,7 +13,10 @@ namespace Presentation.WPF.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
         {

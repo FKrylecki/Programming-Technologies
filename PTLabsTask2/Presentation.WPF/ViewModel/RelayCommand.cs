@@ -1,4 +1,5 @@
 ﻿using System;
+using Presentation.WPF.ViewModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,29 +10,31 @@ namespace Presentation.WPF.ViewModel
 {
     public class RelayCommand : ICommand
     {
-        private readonly Predicate<object> _canExecute;
-        private readonly Action<object> _execute;
+        private ViewModelMain viewModel;
 
-        public RelayCommand(Predicate<object> canExecute, Action<object> execute)
+        public RelayCommand(ViewModelMain viewModel)
         {
-            _canExecute = canExecute;
-            _execute = execute;
+            this.viewModel = viewModel;
         }
 
-        public event EventHandler? CanExecuteChanged
+        public event EventHandler CanExecuteChanged;
+
+        public bool CanExecute(object parameter)
         {
-            add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value;
+            return true;
         }
 
-        public bool CanExecute(object? parameter)
+        public void Execute(object parameter)
         {
-            return _canExecute(parameter);
-        }
-
-        public void Execute(object? parameter)
-        {
-            _execute(parameter);
+            Console.WriteLine("texxx");
+            if (parameter.ToString() == "CList")
+            {
+                viewModel.SelectedViewModel = new VMCatalogList();
+            }
+            else if (parameter.ToString() == "UList")
+            {
+                viewModel.SelectedViewModel = new VMUsers();
+            }
         }
     }
 }

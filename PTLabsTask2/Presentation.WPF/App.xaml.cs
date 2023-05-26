@@ -16,12 +16,12 @@ namespace Presentation.WPF
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
-            MainWindow window = new MainWindow();
-            ViewModelMain vm = new ViewModelMain();
+            //base.OnStartup(e);
+            //MainWindow window = new MainWindow();
+            //ViewModelMain vm = new ViewModelMain();
             //ViewModel VM = new ViewModel();
-            window.DataContext = vm;
-            window.Show();
+            //window.DataContext = vm;
+            //window.Show();
         }
     }
 }

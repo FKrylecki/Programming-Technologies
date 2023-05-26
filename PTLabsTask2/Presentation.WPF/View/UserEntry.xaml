@@ -7,9 +7,6 @@
         xmlns:vmodel="clr-namespace:Presentation.WPF.ViewModel"
         mc:Ignorable="d"
         Title="UserEntry" Height="450" Width="800">
-    <Window.DataContext>
-        <vmodel:VMUsers/>
-    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

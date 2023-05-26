@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace Presentation.WPF.ViewModel
 {
-    internal class VMCatalogList : PropertyChange
+    public class VMCatalogList : PropertyChange
     {
-        private List<ICatalogModelData> catalogList;
-        private IModel model;
-        private VMCatalogs selectedEntry;
-        private int selectedCatalog;
+        public List<ICatalogModelData> catalogList;
+        public IModel model;
+        public VMCatalogs selectedEntry;
+        public int selectedCatalog;
 
+        public VMCatalogList()
+        {
+
+        }
         public VMCatalogList(IModel? _model = default)
         {
             model = _model ?? IModel.CreateNewModel();

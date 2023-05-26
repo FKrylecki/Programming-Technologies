@@ -17,7 +17,7 @@ namespace Presentation.WPF.View
     /// <summary>
     /// Interaction logic for UserMaster.xaml
     /// </summary>
-    public partial class UserMaster : Window
+    public partial class UserMaster
     {
         public UserMaster()
         {

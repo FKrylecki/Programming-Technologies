@@ -26,6 +26,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="321,22,0,0" Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
                 <TransformGroup>
@@ -36,7 +37,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform><Run Language="pl-pl" Text="Welcome to our Furniture Shop!"/></TextBlock>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="43" Margin="305,10,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="203"/>
-        <Button Content="Users" HorizontalAlignment="Left" Margin="145,170,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Users" Command="{Binding UpdateViewCommand}" CommandParameter="UList" HorizontalAlignment="Left" Margin="145,170,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -46,7 +47,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Catalogs" HorizontalAlignment="Left" Margin="501,168,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Catalogs" Command="{Binding UpdateViewCommand}" CommandParameter="CList" HorizontalAlignment="Left" Margin="501,168,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

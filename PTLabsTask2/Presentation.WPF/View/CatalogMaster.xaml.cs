@@ -13,15 +13,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Presentation.WPF
+namespace Presentation.WPF.View
 {
     /// <summary>
     /// Interaction logic for CatalogMaster.xaml
     /// </summary>
-    public partial class CatalogMaster : Window
+    public partial class CatalogMaster
     {
         public CatalogMaster()
         {
+            InitializeComponent();
         }
     }
 }
