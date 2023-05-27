@@ -58,20 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\ICatalog.cs" />
+    <Compile Include="API\IDataContext.cs" />
     <Compile Include="API\IDataRepository.cs" />
     <Compile Include="API\IEvent.cs" />
-    <Compile Include="API\IReturn.cs" />
-    <Compile Include="API\ISell.cs" />
     <Compile Include="API\IState.cs" />
-    <Compile Include="API\ISupply.cs" />
     <Compile Include="API\IUser.cs" />
     <Compile Include="CodeImplementation\Catalog.cs" />
     <Compile Include="CodeImplementation\DataRepository.cs" />
     <Compile Include="CodeImplementation\Event.cs" />
-    <Compile Include="CodeImplementation\Return.cs" />
-    <Compile Include="CodeImplementation\Sell.cs" />
     <Compile Include="CodeImplementation\State.cs" />
-    <Compile Include="CodeImplementation\Supply.cs" />
     <Compile Include="CodeImplementation\User.cs" />
     <Compile Include="FurnitureShop.designer.cs">
       <AutoGen>True</AutoGen>

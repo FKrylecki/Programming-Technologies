@@ -27,8 +27,6 @@ namespace Presentation.WPF.ViewModel
                     new CatalogModelData(2, "Sample 1", 200),
                     new CatalogModelData(3, "Sample 1", 200)
                 };
-                // Real data (can not retrive -> exception error id data layer as mentioned above.
-                return (List<ICatalogModelData>)serviceData.GetCatalogsList();
             }
         }
 
