@@ -9,8 +9,14 @@
         <DataTemplate DataType="{x:Type viewmodels:VMCatalogList}">
             <views:CatalogMaster/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:VMUsers}">
+        <DataTemplate DataType="{x:Type viewmodels:VMUserList}">
             <views:UserMaster/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:VMEventList}">
+            <views:EventMaster/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:VMStateList}">
+            <views:StateMaster/>
         </DataTemplate>
     </Application.Resources>
 </Application>

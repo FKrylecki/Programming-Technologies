@@ -17,7 +17,7 @@ namespace Presentation.WPF.View
     /// <summary>
     /// Interaction logic for StateEntry.xaml
     /// </summary>
-    public partial class StateEntry : Window
+    public partial class StateEntry
     {
         public StateEntry()
         {

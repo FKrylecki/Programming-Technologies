@@ -15,6 +15,11 @@ namespace Presentation.WPF.ViewModel
         private string name;
         private decimal price;
 
+        public VMCatalogs()
+        {
+
+        }
+
         public VMCatalogs(ICatalogModelData data)
         {
             id = data.Id;

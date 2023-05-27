@@ -17,7 +17,7 @@ namespace Presentation.WPF.View
     /// <summary>
     /// Interaction logic for CatalogEntry.xaml
     /// </summary>
-    public partial class CatalogEntry : Window
+    public partial class CatalogEntry
     {
         public CatalogEntry()
         {

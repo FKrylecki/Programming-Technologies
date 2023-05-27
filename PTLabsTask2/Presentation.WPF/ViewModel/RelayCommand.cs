@@ -26,15 +26,23 @@ namespace Presentation.WPF.ViewModel
 
         public void Execute(object parameter)
         {
-            Console.WriteLine("texxx");
             if (parameter.ToString() == "CList")
             {
                 viewModel.SelectedViewModel = new VMCatalogList();
             }
             else if (parameter.ToString() == "UList")
             {
-                viewModel.SelectedViewModel = new VMUsers();
+                viewModel.SelectedViewModel = new VMUserList();
             }
+            else if (parameter.ToString() == "EList")
+            {
+                viewModel.SelectedViewModel = new VMEventList();
+            }
+            else if (parameter.ToString() == "SList")
+            {
+                viewModel.SelectedViewModel = new VMStateList();
+            }
+
         }
     }
 }

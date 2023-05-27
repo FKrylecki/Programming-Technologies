@@ -17,7 +17,7 @@ namespace Presentation.WPF.View
     /// <summary>
     /// Interaction logic for EventEntry.xaml
     /// </summary>
-    public partial class EventEntry : Window
+    public partial class EventEntry
     {
         public EventEntry()
         {

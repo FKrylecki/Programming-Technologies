@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Height="450" Width="800">
     <UserControl.DataContext>
-        <vmodel:VMUsers/>
+        <vmodel:VMUserList/>
     </UserControl.DataContext>
     <DockPanel Margin="20">
         <TextBlock FontSize="24" DockPanel.Dock="Top" Margin="0,0,0,10">User</TextBlock>

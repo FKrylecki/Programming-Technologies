@@ -17,7 +17,7 @@ namespace Presentation.WPF.View
     /// <summary>
     /// Interaction logic for EventMaster.xaml
     /// </summary>
-    public partial class EventMaster : Window
+    public partial class EventMaster
     {
         public EventMaster()
         {

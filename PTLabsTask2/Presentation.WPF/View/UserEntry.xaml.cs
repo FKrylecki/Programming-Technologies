@@ -17,7 +17,7 @@ namespace Presentation.WPF.View
     /// <summary>
     /// Interaction logic for UserEntry.xaml
     /// </summary>
-    public partial class UserEntry : Window
+    public partial class UserEntry
     {
         public UserEntry()
         {
