@@ -1,35 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Linq;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.CodeImplementation;
 
 namespace Data.API
 {
     internal interface IDataContext
     {
-        IQueryable<ICatalog> Catalog { get; }
-        IQueryable<IUser> User { get; }
-        IQueryable<IEvent> Event { get; }
-        public IQueryable<IState> State { get; }
-
-
+        public IQueryable<ICatalog> Catalog { get; }
         Task AddCatalogEntryAsync(ICatalog catalogEntry);
         Task RemoveCatalogEntryAsync(int id);
 
+
+        public IQueryable<IUser> User { get; }
         Task AddUserAsync(IUser userEntry);
         Task RemoveUserAsync(int id);
 
+
+        public IQueryable<IEvent> Event { get; }
         Task AddEventAsync(IEvent eventEntry);
+        Task RemoveEventAsync(int id);
+
+
+        public IQueryable<IState> State { get; }
         Task AddStateAsync(IState stateEntry);
-        
-        
-        Task DeleteCustomerAsync(int Id);
-        Task DeleteStateAsync(int Id);
-        Task DeleteProductAsync(int Id);
-        Task DeleteOrderAsync(int Id);
+        Task RemoveStateAsync(int id);
 
         public static IDataContext CreateContext(string? connectionString = null) => new DataContext(connectionString);
+
+
     }
 }
