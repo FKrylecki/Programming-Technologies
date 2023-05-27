@@ -17,7 +17,7 @@ namespace Presentation.WPF.View
     /// <summary>
     /// Interaction logic for StateMaster.xaml
     /// </summary>
-    public partial class StateMaster : Window
+    public partial class StateMaster
     {
         public StateMaster()
         {

@@ -12,7 +12,7 @@ namespace Presentation.WPF.ViewModel
     {
 
         private IService serviceData;
-        public VMCatalogList(IService _service = default)
+        public VMCatalogList(/*IService _service = default*/)
         {
             //serviceData = _service ?? IService.CreateNewService(); // THROWS A Could not load file or assembly 'System.Data.Linq, Version=4.0.0.0, Culture=neutral EXCEPTION IN DATA LAYER
         }
