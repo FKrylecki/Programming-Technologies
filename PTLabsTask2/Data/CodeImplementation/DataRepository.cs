@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 namespace Data.CodeImplementation
 
 {
-    internal class DataRepository : IDataRepository
+    public class DataRepository : IDataRepository
     {
         private FurnitureShopDataContext dataContext;
 

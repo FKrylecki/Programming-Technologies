@@ -7,13 +7,17 @@ using Data;
 
 namespace Services.CodeImplementation
 {
-    internal class Service : IService
+    public class Service : IService
     {
         private readonly IDataRepository repository;
 
-        public Service(IDataRepository _repository = default) 
+        public Service(IDataRepository _repository) 
         {
-            repository = _repository ?? IDataRepository.CreateNewRepository();
+            repository = _repository;
+        }
+
+        public Service()
+        {
         }
 
         //------------------------------------------------------
