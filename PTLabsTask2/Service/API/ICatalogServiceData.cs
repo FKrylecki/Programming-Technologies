@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Services.API
 {
-    public interface IEventServiceData
+    public interface ICatalogServiceData
     {
         int Id
         {
             get;
+            set;
         }
-        int StateId
-        {
-            get;
-        }
-        int UserId
-        {
-            get;
-        }
-        int QuantityChanged
+        string Name
         {
             get;
             set;
         }
+        decimal Price
+        {
+            get;
+            set;
+        }
+        Task AddAsync();
+        Task DeleteAsync();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Data.API;
+using Data.CodeImplementation;
 using System.Runtime.CompilerServices;
 
 
@@ -47,6 +48,7 @@ namespace Data.CodeImplementation
         }
         public override ICatalog GetCatalog(int id)
         {
+            catalog c = new catalog();
             var cat = (from catalog 
                        in dataContext.catalogs 
                        where catalog.id == id 
@@ -57,10 +59,12 @@ namespace Data.CodeImplementation
             }
             else
             {
-                return EntryToObj(cat);
+                c.id = cat.id;
+                c.price = cat.price;
+                c.name = cat.name;
+                return EntryToObj(c);
             }
         }
-        // Does this work?
         public override IEnumerable<ICatalog> GetCatalogsList()
         {
             var cats = (from catalog 
@@ -209,17 +213,15 @@ namespace Data.CodeImplementation
             return Events;
         }
 
-        public override void ClearEvents()
+        //----------------------------------------------------------------------
+
+        public override void ClearAll()
         {
             dataContext.ExecuteCommand("DELETE FROM events");
             dataContext.ExecuteCommand("DELETE FROM states");
             dataContext.ExecuteCommand("DELETE FROM users");
             dataContext.ExecuteCommand("DELETE FROM catalogs");
         }
-
-        //----------------------------------------------------------------------
-
-
 
     }
 }

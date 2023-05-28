@@ -1,4 +1,5 @@
 ﻿using Data.API;
+
 namespace Data.CodeImplementation
 {
     internal class Catalog : ICatalog

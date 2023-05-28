@@ -6,27 +6,25 @@ using System.Threading.Tasks;
 
 namespace Services.API
 {
-    public interface IUserServiceData
+    public interface IStateServiceData
     {
-        int Id
+        int StateId
         {
             get;
             set;
         }
-        string FirstName
+        int Quantity
         {
             get;
             set;
         }
-        string LastName
+        int Catalog
         {
             get;
             set;
         }
-        string Address
-        {
-            get;
-            set;
-        }
+        Task AddAsync();
+        Task DeleteAsync();
+
     }
 }

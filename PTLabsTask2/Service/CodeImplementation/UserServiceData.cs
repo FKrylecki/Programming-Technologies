@@ -1,13 +1,8 @@
-﻿using Services.API;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.API;
 
 namespace Services.CodeImplementation
 {
-    internal class UserServiceData : IUserServiceData
+    internal class UserServiceData : IUser
     {
         public UserServiceData(int id, string fName, string lName, string address) 
         { 

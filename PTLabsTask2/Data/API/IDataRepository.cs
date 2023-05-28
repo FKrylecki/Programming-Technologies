@@ -28,13 +28,19 @@ namespace Data.API
         public abstract void AddEvent(int id, int stateId, int userId, int QuantityChanged);
         public abstract void RemoveEvent(int id);
         public abstract IEnumerable<IEvent> GetEventsList();
-        public abstract void ClearEvents();
 
         //---------------------------------------------------
+
+        public abstract void ClearAll();
 
         public static IDataRepository CreateNewRepository()
         {
             return new DataRepository();
+        }
+
+        public static IDataRepository CreateNewRepository(string connectionString)
+        {
+            return new DataRepository(connectionString);
         }
     }
 }

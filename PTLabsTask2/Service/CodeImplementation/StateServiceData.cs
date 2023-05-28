@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Services.API;
+﻿using Data.API;
 
 namespace Services.CodeImplementation
 {
-    internal class StateServiceData : IStateServiceData
+    internal class StateServiceData : IState
     {
         public StateServiceData(int stateId, int quantity, int catalog_id)
         {
