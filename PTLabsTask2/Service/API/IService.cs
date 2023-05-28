@@ -9,19 +9,16 @@ namespace Services.API
     {
         public abstract Task AddCatalog(int id, string name, decimal price);
         public abstract Task RemoveCatalog(int id);
-        public abstract Task<ICatalog> GetCatalog(int id);
         public abstract Task<IEnumerable<ICatalog>> GetCatalogsList();
 
         //---------------------------------------------------
         public abstract Task AddUser(int id, string firstName, string lastName, string address);
         public abstract Task RemoveUser(int id);
-        public abstract Task<IUser> GetUser(int id);
         public abstract Task<IEnumerable<IUser>> GetUsersList();
 
         //---------------------------------------------------
         public abstract Task AddState(int id, int quantity, int catalogId);
         public abstract Task RemoveState(int id);
-        public abstract Task<IState> GetState(int id);
         public abstract Task<IEnumerable<IState>> GetStatesList();
 
         //---------------------------------------------------
