@@ -20,6 +20,11 @@ namespace Presentation.WPF.ViewModel
 
         private ObservableCollection<VMStates> StateVM;
 
+        public VMStateList()
+        {
+            imodel = imodel ?? new ModelDefault();
+            StateVM = new ObservableCollection<VMStates>();
+        }
         public VMStateList(IModel? model = default(ModelDefault))
         {
             imodel = model ?? new ModelDefault();

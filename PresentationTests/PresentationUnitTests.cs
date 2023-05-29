@@ -20,6 +20,7 @@ namespace PresentationTests
             Assert.AreEqual(list.UserView.Count(), 1);
             Assert.AreEqual(User.Id, 1);
             Assert.AreEqual(User.firstName, "Test");
+            Assert.AreEqual(User.lastName, list.UserView[0].lastName);
             model.RemoveUser(1);
             list.UserView.Remove(User);
         }
