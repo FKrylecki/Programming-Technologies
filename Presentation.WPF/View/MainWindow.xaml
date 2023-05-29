@@ -49,20 +49,11 @@
                 RenderTransformOrigin="0.5,0.5"
                 Width="100"/>
 
-        <Button Content="States"
-                Command="{Binding UpdateViewCommand}" 
-                CommandParameter="SList" 
-                HorizontalAlignment="Left" 
-                Margin="500,0,0,0" 
-                VerticalAlignment="Center" 
-                RenderTransformOrigin="0.5,0.5" 
-                Width="100"/>
-
         <Button Content="Events"
                 Command="{Binding UpdateViewCommand}" 
                 CommandParameter="EList" 
                 HorizontalAlignment="Left" 
-                Margin="630,0,0,0" 
+                Margin="500,0,0,0" 
                 VerticalAlignment="Center" 
                 RenderTransformOrigin="0.5,0.5" 
                 Width="100"/>
