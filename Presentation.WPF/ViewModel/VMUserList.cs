@@ -19,18 +19,32 @@ namespace Presentation.WPF.ViewModel
         private string firstname;
         private string lastname;
         private string address;
-
+        private VMUsers selectedViewModel;
+        private IUserModelData selectedUser;
         private IModel imodel;
 
-        public ICommand SupplyCommand { get; }
+        public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand RefreshCommand { get; }
 
         private ObservableCollection<VMUsers> UserVM;
 
-        public VMUserList(IModel? model = default(ModelDefault)) {
-            imodel = model ?? new ModelDefault();
+        public VMUserList()
+        {
+            imodel = new ModelDefault();
             UserVM = new ObservableCollection<VMUsers>();
+            AddCommand = new RelayCommand(e => { Add(); }, a => true);
+            DeleteCommand = new RelayCommand(e => { Delete(); }, a => true);
+            RefreshCommand = new RelayCommand(e => { GetUsers(); }, a => true);
+        }
+
+        public VMUserList(IModel model)
+        {
+            imodel = model;
+            UserVM = new ObservableCollection<VMUsers>();
+            AddCommand = new RelayCommand(e => { Add(); }, a => true);
+            DeleteCommand = new RelayCommand(e => { Delete(); }, a => true);
+            RefreshCommand = new RelayCommand(e => { GetUsers(); }, a => true);
         }
         public ObservableCollection<VMUsers> UserView
         {
@@ -52,7 +66,6 @@ namespace Presentation.WPF.ViewModel
                 OnPropertyChanged(nameof(Id));
             }
         }
-
         public string firstName
         {
             get => firstname;
@@ -82,6 +95,32 @@ namespace Presentation.WPF.ViewModel
 
                 OnPropertyChanged(nameof(Address));
             }
+        }
+
+        private VMUsers UserToPrezentation(IUserModelData u)
+        {
+            return u == null ? null : new VMUsers(u.Id, u.FirstName, u.LastName, u.Address);
+        }
+
+        public void GetUsers()
+        {
+            UserVM.Clear();
+
+            foreach (var u in imodel.GetUsersList())
+            {
+                UserVM.Add(UserToPrezentation(u));
+            }
+
+            OnPropertyChanged(nameof(UserVM));
+        }
+
+        private async Task Add()
+        {
+            await imodel.AddUser(selectedViewModel.Id, selectedViewModel.firstName, selectedViewModel.lastName, selectedViewModel.Address);
+        }
+        private async Task Delete()
+        {
+            await imodel.RemoveUser(selectedViewModel.Id);
         }
     }
 }

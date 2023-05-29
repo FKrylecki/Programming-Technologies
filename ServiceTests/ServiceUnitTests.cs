@@ -9,9 +9,7 @@ namespace ServiceTests
     [TestClass]
     public class ServiceUnitTests
     {
-       
-        private const string defaultConnectionString = "Data Source = (localdb) Local;Initial Catalog = PTLabdb; Integrated Security = True";
-        IService serviceRepo = IService.CreateNewService(defaultConnectionString);
+        IService serviceRepo = IService.CreateNewService(new MockDataLayer());
 
         [TestMethod]
         public void CatalogTest()
@@ -19,7 +17,7 @@ namespace ServiceTests
             
             serviceRepo.AddCatalog(1, "Sofa", 199);
             Assert.IsNotNull(serviceRepo.GetCatalogsList());
-            IEnumerable<ICatalogServiceData> compare = serviceRepo.GetCatalogsList();
+            List<ICatalogServiceData> compare = serviceRepo.GetCatalogsList();
             serviceRepo.RemoveCatalog(1);
             Assert.AreNotEqual(compare, serviceRepo.GetCatalogsList());
         }
@@ -57,6 +55,7 @@ namespace ServiceTests
             serviceRepo.RemoveUser(1);
         }
 
+        [TestMethod]
         public void StateTests()
         {
             serviceRepo.AddCatalog(1, "Sofa", 199);

@@ -18,11 +18,10 @@ namespace Presentation.WPF.ViewModel
         private string lastname;
         private string address;
 
-        private readonly Presentation.WPF.Model.API.IModel _model;
+        public VMUsers()
+        {
 
-        public ICommand AddUser { get; }
-        public ICommand DeleteUser { get; }
-        public ICommand GetUser { get; }
+        }
 
         public VMUsers(int iD, string firstName, string lastName, string addresS)
         {
@@ -30,9 +29,6 @@ namespace Presentation.WPF.ViewModel
             firstname = firstName;
             lastname = lastName;
             address = addresS;
-
-            AddUser = new RelayCommand(e => { _ = Add(); }, a => true);
-            DeleteUser = new RelayCommand(e => { _ = Delete(); }, a => true);
         }
 
         public int Id
@@ -75,15 +71,6 @@ namespace Presentation.WPF.ViewModel
 
                 OnPropertyChanged(nameof(Address));
             }
-        }
-
-        private async Task Add()
-        {
-            await _model.AddUser(Id, firstName, lastName, Address);
-        }
-        private async Task Delete()
-        {
-            await _model.RemoveUser(Id);
         }
     }
 }

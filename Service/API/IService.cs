@@ -30,9 +30,9 @@ namespace Services.API
         public abstract Task ReturnItem(int id, int stateId, int userId, int QuantityChanged);
         public abstract Task SupplyItem(int id, int stateId, int userId, int QuantityChanged);
 
-        public static IService CreateNewService(string connectionString)
+        public static IService CreateNewService(IDataRepository data)
         {
-            return new Service(IDataRepository.CreateNewRepository(connectionString));
+            return new Service(data);
         }
         public static IService CreateNewService()
         {
