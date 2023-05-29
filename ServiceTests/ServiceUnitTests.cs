@@ -19,7 +19,7 @@ namespace ServiceTests
             
             serviceRepo.AddCatalog(1, "Sofa", 199);
             Assert.IsNotNull(serviceRepo.GetCatalogsList());
-            Task<IEnumerable<ICatalog>> compare = serviceRepo.GetCatalogsList();
+            IEnumerable<ICatalogServiceData> compare = serviceRepo.GetCatalogsList();
             serviceRepo.RemoveCatalog(1);
             Assert.AreNotEqual(compare, serviceRepo.GetCatalogsList());
         }
@@ -29,7 +29,7 @@ namespace ServiceTests
         {
             serviceRepo.AddUser(1, "Filip", "Testt", "Testing");
             Assert.IsNotNull(serviceRepo.GetUsersList());
-            Task<IEnumerable<IUser>> compare = serviceRepo.GetUsersList();
+            IEnumerable<IUserServiceData> compare = serviceRepo.GetUsersList();
             serviceRepo.RemoveUser(1);
             Assert.AreNotEqual(compare, serviceRepo.GetUsersList());
         }
@@ -41,7 +41,7 @@ namespace ServiceTests
             serviceRepo.AddCatalog(1, "Sofa", 199);
             serviceRepo.AddState(1, 5, 1);
 
-            Task<IEnumerable<IEvent>> compare = serviceRepo.GetEventsList();
+            IEnumerable<IEventServiceData> compare = serviceRepo.GetEventsList();
 
             serviceRepo.SellItem(1, 1, 1, 3);
             serviceRepo.ReturnItem(2, 1, 1, 2);
@@ -62,7 +62,7 @@ namespace ServiceTests
             serviceRepo.AddCatalog(1, "Sofa", 199);
             serviceRepo.AddState(1, 5, 1);
 
-            Task<IEnumerable<IState>> compare = serviceRepo.GetStatesList();
+            IEnumerable<IStateServiceData> compare = serviceRepo.GetStatesList();
         }
 
     }

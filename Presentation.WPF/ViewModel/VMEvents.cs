@@ -14,10 +14,14 @@ namespace Presentation.WPF.ViewModel
         private int userid;
         private int quantitychanged;
 
-        private readonly Presentation.WPF.Model.API.IModel _model;
 
-        public ICommand AddSell { get; }
-        public ICommand DeleteEvent { get; }
+        public VMEvents()
+        {
+            id = 0;
+            stateid = 0;
+            userid = 0;
+            quantitychanged = 0;
+        }
 
         public VMEvents(int iD, int stateidu, int useridu, int quantitychangedu)
         {
@@ -25,10 +29,9 @@ namespace Presentation.WPF.ViewModel
             stateid = stateidu;
             userid = useridu;
             quantitychanged = quantitychangedu;
-
-            AddSell = new RelayCommand(e => { _ = Add(); }, a => true);
-            DeleteEvent = new RelayCommand(e => { _ = Delete(); }, a => true);
         }
+
+        
 
         public int Id
         {
@@ -70,15 +73,6 @@ namespace Presentation.WPF.ViewModel
 
                 OnPropertyChanged(nameof(QuantityChanged));
             }
-        }
-
-        private async Task Add()
-        {
-            await _model.SellItem(Id, StateId, UserID, QuantityChanged);
-        }
-        private async Task Delete()
-        {
-            await _model.RemoveEvent(Id);
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Diagnostics;
 using System.Xml.Linq;
+using System.Windows.Input;
 
 namespace Presentation.WPF.ViewModel
 {
@@ -20,6 +21,10 @@ namespace Presentation.WPF.ViewModel
         private string address;
 
         private IModel imodel;
+
+        public ICommand SupplyCommand { get; }
+        public ICommand DeleteCommand { get; }
+        public ICommand RefreshCommand { get; }
 
         private ObservableCollection<VMUsers> UserVM;
 
