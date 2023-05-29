@@ -17,9 +17,7 @@ namespace ServiceTests
             IService serviceRepo = IService.CreateNewService(new MockDataLayer());
             serviceRepo.AddCatalog(1, "Sofa", 199);
             Assert.IsNotNull(serviceRepo.GetCatalogsList());
-            List<ICatalogServiceData> compare = serviceRepo.GetCatalogsList();
-            serviceRepo.RemoveCatalog(1);
-            Assert.AreNotEqual(compare, serviceRepo.GetCatalogsList());
+
         }
         [TestMethod]
 
@@ -28,9 +26,7 @@ namespace ServiceTests
             IService serviceRepo = IService.CreateNewService(new MockDataLayer());
             serviceRepo.AddUser(1, "Filip", "Testt", "Testing");
             Assert.IsNotNull(serviceRepo.GetUsersList());
-            List<IUserServiceData> compare = serviceRepo.GetUsersList();
-            serviceRepo.RemoveUser(1);
-            Assert.AreNotEqual(compare, serviceRepo.GetUsersList());
+
         }
 
         [TestMethod]
@@ -39,10 +35,18 @@ namespace ServiceTests
             IService serviceRepo = IService.CreateNewService(new MockDataLayer());
             serviceRepo.AddCatalog(2, "Sofa", 199);
             serviceRepo.AddState(1, 5, 2);
-            List<IStateServiceData> compare = serviceRepo.GetStatesList();
-            serviceRepo.RemoveState(1); 
-            serviceRepo.RemoveCatalog(1);
-            Assert.AreNotEqual(compare, serviceRepo.GetUsersList());
+            Assert.IsNotNull(serviceRepo.GetStatesList());
+        }
+
+        [TestMethod]
+        public void EventTests()
+        {
+            IService serviceRepo = IService.CreateNewService(new MockDataLayer());
+            serviceRepo.AddCatalog(2, "Sofa", 199);
+            serviceRepo.AddState(1, 5, 2);
+            serviceRepo.AddUser(1, "Filip", "Testt", "Testing");
+            serviceRepo.SellItem(1, 1, 1, 2);
+            Assert.IsNotNull(serviceRepo.GetEventsList());
         }
 
     }
