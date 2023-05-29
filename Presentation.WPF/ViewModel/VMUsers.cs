@@ -33,7 +33,6 @@ namespace Presentation.WPF.ViewModel
 
             AddUser = new RelayCommand(e => { _ = Add(); }, a => true);
             DeleteUser = new RelayCommand(e => { _ = Delete(); }, a => true);
-            GetUser = new RelayCommand(e => { _ = Get(); }, a => true);
         }
 
         public int Id
@@ -85,10 +84,6 @@ namespace Presentation.WPF.ViewModel
         private async Task Delete()
         {
             await _model.RemoveUser(Id);
-        }
-        private async Task Get()
-        {
-            await _model.GetUser(Id);
         }
     }
 }

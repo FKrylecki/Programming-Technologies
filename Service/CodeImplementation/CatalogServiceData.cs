@@ -1,8 +1,9 @@
-﻿using Data.API;
+﻿
+using Services.API;
 
 namespace Services.CodeImplementation
 {
-    internal class CatalogServiceData : ICatalog
+    internal class CatalogServiceData : ICatalogServiceData
     {
         public CatalogServiceData(int id, string name, decimal price)
         {

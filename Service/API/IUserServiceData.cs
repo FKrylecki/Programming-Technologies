@@ -28,8 +28,5 @@ namespace Services.API
             get;
             set;
         }
-
-        Task AddAsync();
-        Task DeleteAsync();
     }
 }

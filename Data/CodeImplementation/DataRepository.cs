@@ -10,14 +10,13 @@ namespace Data.CodeImplementation
     public class DataRepository : IDataRepository
     {
         private FurnitureShopDataContext dataContext;
+        private readonly string _connectionString;
+        private const string defaultConnectionString = "Data Source = (localdb) Local;Initial Catalog = PTLabdb; Integrated Security = True";
 
-        public DataRepository(string customConnectionString)
+        public DataRepository(string? customConnectionString = null)
         {
-            dataContext = new FurnitureShopDataContext(customConnectionString);
-        }
-
-        public DataRepository()
-        {
+            this._connectionString = customConnectionString ?? defaultConnectionString;
+            dataContext = new FurnitureShopDataContext(_connectionString);
         }
 
         //----------------------------------------------------------------------

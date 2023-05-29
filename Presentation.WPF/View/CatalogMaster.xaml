@@ -5,21 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentation.WPF.View"
         xmlns:vmodel="clr-namespace:Presentation.WPF.ViewModel"
+        xmlns:view="clr-namespace:Presentation.WPF.View"
         mc:Ignorable="d"
-        Height="450" Width="800">
+        Height="500" Width="800">
     <UserControl.DataContext>
         <vmodel:VMCatalogList/>
     </UserControl.DataContext>
-    <DockPanel Margin="20">
-        <TextBlock FontSize="24" DockPanel.Dock="Top" Margin="0,0,0,10">Catalog</TextBlock>
+    <DockPanel Margin="20, 0, 20, 20">
+        <TextBlock FontSize="24" DockPanel.Dock="Top" Margin="0,0,0,0">Catalog</TextBlock>
         <Grid VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <GroupBox Header="Selected Entry">
-
+                <view:CatalogEntry FontSize="12" DataContext="{Binding SelectedVM}" Margin="0,0,9,0" />
             </GroupBox>
+            <Button Margin="40,25,640,152" Command="{Binding AddCat}" Height="NaN" Width="NaN">Add New</Button>
+            <Button Margin="40,101,640,76" Command="{Binding DeleteCat}" Height="NaN" Width="NaN">Delete</Button>
+            <Button Margin="660,176,20,10" Command="{Binding Refresh}" Height="NaN" Width="NaN" Click="Button_Click">Refresh</Button>
             <GroupBox Grid.Row="1">
                 <ListView Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,5" ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedCatalog}">
                     <ListView.View>

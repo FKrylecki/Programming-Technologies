@@ -1,8 +1,8 @@
-﻿using Data.API;
+﻿using Services.API;
 
 namespace Services.CodeImplementation
 {
-    internal class StateServiceData : IState
+    internal class StateServiceData : IStateServiceData
     {
         public StateServiceData(int stateId, int quantity, int catalog_id)
         {

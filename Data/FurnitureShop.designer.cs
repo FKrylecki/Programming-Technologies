@@ -44,8 +44,8 @@ namespace Data
 		{
 			OnCreated();
 		}
-		
-		public FurnitureShopDataContext(System.Data.IDbConnection connection) : 
+
+        public FurnitureShopDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();

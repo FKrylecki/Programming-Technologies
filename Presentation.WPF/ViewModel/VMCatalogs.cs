@@ -14,7 +14,6 @@ namespace Presentation.WPF.ViewModel
         private int id;
         private string name;
         private decimal price;
-        private readonly Presentation.WPF.Model.API.IModel model;
         public ICommand AddCat { get; }
         public ICommand DeleteCat { get; }
 
@@ -23,9 +22,13 @@ namespace Presentation.WPF.ViewModel
             id = idu;
             name = nameu;
             price = priceu;
+        }
 
-            AddCat = new RelayCommand(e => { _ = Add(); }, a => true);
-            DeleteCat = new RelayCommand(e => { _ = Delete(); }, a => true);
+        public VMCatalogs()
+        {
+            id = 0;
+            name = "Sample";
+            price = 100;
         }
 
         public int Id
@@ -38,7 +41,6 @@ namespace Presentation.WPF.ViewModel
                 OnPropertyChanged(nameof(Id));
             }
         }
-
         public string Name
         {
             get => name;
@@ -58,15 +60,6 @@ namespace Presentation.WPF.ViewModel
 
                 OnPropertyChanged(nameof(Price));
             }
-        }
-
-        private async Task Add()
-        {
-            await model.AddCatalog(Id, Name, Price);
-        }
-        private async Task Delete()
-        {
-            await model.RemoveCatalog(Id);
         }
     }
 }

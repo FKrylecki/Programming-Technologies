@@ -9,22 +9,21 @@ namespace Services.API
     {
         public abstract Task AddCatalog(int id, string name, decimal price);
         public abstract Task RemoveCatalog(int id);
-        public abstract Task<IEnumerable<ICatalog>> GetCatalogsList();
+        public abstract List<ICatalogServiceData> GetCatalogsList();
 
         //---------------------------------------------------
         public abstract Task AddUser(int id, string firstName, string lastName, string address);
         public abstract Task RemoveUser(int id);
-        public abstract Task GetUser(int id);
-        public abstract Task<IEnumerable<IUser>> GetUsersList();
+        public abstract List<IUserServiceData> GetUsersList();
 
         //---------------------------------------------------
         public abstract Task AddState(int id, int quantity, int catalogId);
         public abstract Task RemoveState(int id);
-        public abstract Task<IEnumerable<IState>> GetStatesList();
+        public abstract List<IStateServiceData> GetStatesList();
 
         //---------------------------------------------------
         public abstract Task RemoveEvent(int id);
-        public abstract Task<IEnumerable<IEvent>> GetEventsList();
+        public abstract List<IEventServiceData> GetEventsList();
 
         //Business Logic:
         public abstract Task SellItem(int id, int stateId, int userId, int QuantityChanged);

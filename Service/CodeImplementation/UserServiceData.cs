@@ -1,8 +1,8 @@
-﻿using Data.API;
+﻿using Services.API;
 
 namespace Services.CodeImplementation
 {
-    internal class UserServiceData : IUser
+    internal class UserServiceData : IUserServiceData
     {
         public UserServiceData(int id, string fName, string lName, string address) 
         { 

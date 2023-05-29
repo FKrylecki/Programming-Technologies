@@ -28,13 +28,13 @@ namespace PresentationTests
         {
             VMCatalogList list = new VMCatalogList(model);
             VMCatalogs Cat = new VMCatalogs(1, "Test", 200);
-            list.CatView.Add(Cat);
+            list.SelectedVM.Add(Cat);
             model.AddCatalog(1, "Test", 200);
-            Assert.AreEqual(list.CatView.Count(), 1);
+            Assert.AreEqual(list.SelectedVM.Count(), 1);
             Assert.AreEqual(Cat.Id, 1);
             Assert.AreEqual(Cat.Name, "Test");
             model.RemoveCatalog(1);
-            list.CatView.Remove(Cat);
+            list.SelectedVM.Remove(Cat);
         }
     }
 }

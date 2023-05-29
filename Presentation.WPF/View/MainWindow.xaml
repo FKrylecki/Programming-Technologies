@@ -10,18 +10,9 @@
     <Window.DataContext>
         <vmodel:ViewModelMain/>
     </Window.DataContext>
-    <Window.Resources>
-        <Style TargetType="{x:Type Control}" x:Key="baseStyle">
-            <Setter Property="FontSize" Value="20" />
-        </Style>
-        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
-        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
-        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseStyle}"></Style>
-        <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource baseStyle}"></Style>
-    </Window.Resources>
     <Grid Margin="0,0,0,20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.15*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="1" Content="{Binding SelectedViewModel}"/>

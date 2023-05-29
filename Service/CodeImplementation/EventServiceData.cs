@@ -1,8 +1,8 @@
-﻿using Data.API;
+﻿using Services.API;
 
 namespace Services.CodeImplementation
 {
-    internal class EventServiceData : IEvent
+    internal class EventServiceData : IEventServiceData
     {
         public int Id
         {

@@ -12,18 +12,17 @@ namespace Presentation.WPF.Model.API
 {
     public interface IModel
     {
-        Task <ICatalogModelData> GetCatalogsList();
+        List<ICatalogModelData> GetCatalogsList();
         Task RemoveCatalog(int id);
         Task AddCatalog(int id, string name, decimal price);
-        Task <IUserModelData> GetUsersList();
+        List <IUserModelData> GetUsersList();
         Task RemoveUser(int id);
         Task AddUser(int id, string firstname, string lastname, string address);
-        Task GetUser(int id);
-        Task <IStateModelData> GetStatesList();
+        List <IStateModelData> GetStatesList();
         Task RemoveState(int id);
         Task AddState(int id, int quantity, int catalogId);
         Task RemoveEvent(int id);
-        Task <IEventModelData> GetEventsList();
+        List <IEventModelData> GetEventsList();
         Task SellItem(int id, int stateId, int userId, int QuantityChanged);
         Task ReturnItem(int id, int stateId, int userId, int QuantityChanged);
         Task SupplyItem(int id, int stateId, int userId, int QuantityChanged);

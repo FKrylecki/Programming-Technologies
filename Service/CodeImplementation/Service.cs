@@ -6,6 +6,8 @@ using System.Net;
 using Data;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Data.CodeImplementation;
 
 namespace Services.CodeImplementation
 {
@@ -20,10 +22,19 @@ namespace Services.CodeImplementation
 
         public Service()
         {
+            repository = IDataRepository.CreateNewRepository();
         }
+
+        
 
         //------------------------------------------------------
 
+        private CatalogServiceData CatalogToService(ICatalog c)
+        {
+            if (c == null)
+                return null;
+            return new CatalogServiceData(c.Id, c.Name, c.Price);
+        }
         public async override Task AddCatalog(int id, string name, decimal price)
         {
             await Task.Run(() => { repository.AddCatalog(id, name, price); });
@@ -32,12 +43,23 @@ namespace Services.CodeImplementation
         {
             await Task.Run(() => { repository.RemoveCatalog(id); });
         }
-        public async override Task<IEnumerable<ICatalog>> GetCatalogsList()
+        public override List<ICatalogServiceData> GetCatalogsList()
         {
-            return repository.GetCatalogsList();
+            IEnumerable<ICatalog> listData = repository.GetCatalogsList();
+            List<ICatalogServiceData> result = new List<ICatalogServiceData>();
+            foreach (var entry in listData)
+                result.Add(CatalogToService(entry));
+
+            return result;
         }
 
         //------------------------------------------------------
+        private UserServiceData UserToService(IUser u)
+        {
+            if (u == null)
+                return null;
+            return new UserServiceData(u.Id, u.FirstName, u.LastName, u.Address);
+        }
         public async override Task AddUser(int id, string firstName, string lastName, string address)
         {
             await Task.Run(() => { repository.AddUser(id, firstName, lastName, address); });
@@ -46,16 +68,25 @@ namespace Services.CodeImplementation
         {
             await Task.Run(() => { repository.RemoveUser(id); });
         }
-        public async override Task GetUser(int id)
+
+        public override List<IUserServiceData> GetUsersList()
         {
-            await Task.Run(() => { repository.GetUser(id); });
-        }
-        public async override Task<IEnumerable<IUser>> GetUsersList()
-        {
-            return repository.GetUsersList();
+            IEnumerable<IUser> listData = repository.GetUsersList();
+            List<IUserServiceData> result = new List<IUserServiceData>();
+            foreach (var entry in listData)
+                result.Add(UserToService(entry));
+
+            return result;
         }
 
         //------------------------------------------------------
+        private StateServiceData StateToService(IState s)
+        {
+            if (s == null)
+                return null;
+            return new StateServiceData(s.StateId, s.Catalog, s.Quantity);
+        }
+
         public async override Task AddState(int id, int quantity, int catalogId)
         {
             await Task.Run(() => { repository.AddState(id, quantity, catalogId); });
@@ -64,12 +95,23 @@ namespace Services.CodeImplementation
         {
             await Task.Run(() => { repository.RemoveState(id); });
         }
-        public async override Task<IEnumerable<IState>> GetStatesList()
+        public override List<IStateServiceData> GetStatesList()
         {
-            return repository.GetStatesList();
+            IEnumerable<IState> listData = repository.GetStatesList();
+            List<IStateServiceData> result = new List<IStateServiceData>();
+            foreach (var entry in listData)
+                result.Add(StateToService(entry));
+
+            return result;
         }
 
         //------------------------------------------------------
+        private EventServiceData EventToService(IEvent e)
+        {
+            if (e == null)
+                return null;
+            return new EventServiceData(e.Id, e.StateId, e.UserId, e.QuantityChanged);
+        }
         private async Task AddEvent(int id, int stateId, int userId, int QuantityChanged)
         {
             await Task.Run(() => { repository.AddEvent(id, stateId, userId, QuantityChanged); });
@@ -78,9 +120,14 @@ namespace Services.CodeImplementation
         {
             await Task.Run(() => { repository.RemoveEvent(id); });
         }
-        public async override Task<IEnumerable<IEvent>> GetEventsList()
+        public override List<IEventServiceData> GetEventsList()
         {
-            return repository.GetEventsList();
+            IEnumerable<IEvent> listData = repository.GetEventsList();
+            List<IEventServiceData> result = new List<IEventServiceData>();
+            foreach (var entry in listData)
+                result.Add(EventToService(entry));
+
+            return result;
         }
         public async override Task SellItem(int id, int stateId, int userId, int QuantityChanged)
         {
