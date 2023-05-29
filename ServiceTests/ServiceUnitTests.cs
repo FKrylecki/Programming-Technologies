@@ -9,12 +9,12 @@ namespace ServiceTests
     [TestClass]
     public class ServiceUnitTests
     {
-        IService serviceRepo = IService.CreateNewService(new MockDataLayer());
+        
 
         [TestMethod]
         public void CatalogTest()
         {
-            
+            IService serviceRepo = IService.CreateNewService(new MockDataLayer());
             serviceRepo.AddCatalog(1, "Sofa", 199);
             Assert.IsNotNull(serviceRepo.GetCatalogsList());
             List<ICatalogServiceData> compare = serviceRepo.GetCatalogsList();
@@ -25,6 +25,7 @@ namespace ServiceTests
 
         public void UserTests()
         {
+            IService serviceRepo = IService.CreateNewService(new MockDataLayer());
             serviceRepo.AddUser(1, "Filip", "Testt", "Testing");
             Assert.IsNotNull(serviceRepo.GetUsersList());
             IEnumerable<IUserServiceData> compare = serviceRepo.GetUsersList();
@@ -35,11 +36,12 @@ namespace ServiceTests
         [TestMethod]
         public void EventsTest()
         {
+            IService serviceRepo = IService.CreateNewService(new MockDataLayer());
             serviceRepo.AddUser(1, "Filip", "Test", "Test 1");
             serviceRepo.AddCatalog(1, "Sofa", 199);
             serviceRepo.AddState(1, 5, 1);
 
-            IEnumerable<IEventServiceData> compare = serviceRepo.GetEventsList();
+            List<IEventServiceData> compare = serviceRepo.GetEventsList();
 
             serviceRepo.SellItem(1, 1, 1, 3);
             serviceRepo.ReturnItem(2, 1, 1, 2);
@@ -58,10 +60,11 @@ namespace ServiceTests
         [TestMethod]
         public void StateTests()
         {
+            IService serviceRepo = IService.CreateNewService(new MockDataLayer());
             serviceRepo.AddCatalog(1, "Sofa", 199);
             serviceRepo.AddState(1, 5, 1);
 
-            IEnumerable<IStateServiceData> compare = serviceRepo.GetStatesList();
+            List<IStateServiceData> compare = serviceRepo.GetStatesList();
         }
 
     }
