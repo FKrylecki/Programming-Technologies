@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Presentation.WPF.View.EventMaster"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.WPF.View"
+        xmlns:vmodel="clr-namespace:Presentation.WPF.ViewModel"
+        xmlns:view="clr-namespace:Presentation.WPF.View"
+        mc:Ignorable="d"
+        Height="500" Width="800">
+    <UserControl.DataContext>
+        <vmodel:VMEventList/>
+    </UserControl.DataContext>
+    <DockPanel Margin="20">
+        <TextBlock FontSize="24" DockPanel.Dock="Top" Margin="0,0,0,10">Event</TextBlock>
+        <Grid VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <GroupBox Header="Selected Entry">
+                <view:EventEntry FontSize="12" DataContext="{Binding SelectedVM}" Margin="0,0,9,0" />
+            </GroupBox>
+            <Button Margin="40,25,640,152" Command="{Binding SellCommand}" Height="NaN" Width="NaN">Sell</Button>
+            <Button Margin="40,118,640,59" Command="{Binding SupplyCommand}" Height="NaN" Width="NaN">Supply</Button>
+            <Button Margin="40,69,640,108" Command="{Binding ReturnCommand}" Height="NaN" Width="NaN">Return</Button>
+            <Button Margin="40,167,640,10" Command="{Binding DeleteCommand}" Height="NaN" Width="NaN">Delete</Button>
+            <Button Margin="660,176,20,10" Command="{Binding RefreshCommand}" Height="NaN" Width="NaN">Refresh</Button>
+            <GroupBox Grid.Row="1">
+                <ListView Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,5" ItemsSource="{Binding EventList}" SelectedIndex="{Binding SelectedCatalog}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" Width="180" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="StateId" Width="180"  DisplayMemberBinding="{Binding StateId}"/>
+                            <GridViewColumn Header="UserId" Width="180"  DisplayMemberBinding="{Binding UserId}"/>
+                            <GridViewColumn Header="QuantityChanged" Width="230"  DisplayMemberBinding="{Binding QuantityChanged}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </GroupBox>
+        </Grid>
+    </DockPanel>
+</UserControl>
