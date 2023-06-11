@@ -15,7 +15,7 @@ namespace Presentation.WPF.Model.CodeImplementation
     {
         private IService service;
 
-        internal ModelDefault(IService? _service = default)
+        internal ModelDefault(IService? _service = null)
         {
             service = _service ?? IService.CreateNewService();
         }

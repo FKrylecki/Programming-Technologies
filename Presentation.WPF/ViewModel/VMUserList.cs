@@ -38,9 +38,9 @@ namespace Presentation.WPF.ViewModel
             RefreshCommand = new RelayCommand(e => { GetUsers(); }, a => true);
         }
 
-        public VMUserList(IModel model)
+        public VMUserList(IModel? model = default(ModelDefault))
         {
-            imodel = model;
+            imodel = model ?? new ModelDefault();
             UserVM = new ObservableCollection<VMUsers>();
             AddCommand = new RelayCommand(e => { Add(); }, a => true);
             DeleteCommand = new RelayCommand(e => { Delete(); }, a => true);

@@ -30,9 +30,9 @@ namespace Presentation.WPF.ViewModel
             Refresh = new RelayCommand(e => { GetCatalogs(); }, a => true);
         }
 
-        public VMCatalogList(IModel model)
+        public VMCatalogList(IModel? model = default(ModelDefault))
         {
-            imodel = model;
+            imodel = model ?? new ModelDefault();
             CatVM = new ObservableCollection<VMCatalogs>();
             AddCat = new RelayCommand(e => { Add(); }, a => true);
             DeleteCat = new RelayCommand(e => { Delete(); }, a => true);
