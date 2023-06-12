@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Presentation.WPF.Model.CodeImplementation;
-using Presentation.WPF.Model.API;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Presentation.WPF.Model.API;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Presentation.WPF.ViewModel
@@ -31,7 +26,7 @@ namespace Presentation.WPF.ViewModel
 
         public VMEventList()
         {
-            imodel = new ModelDefault();
+            imodel = IModel.CreateNewModel();
             EventVM = new ObservableCollection<VMEvents>();
 
             SellCommand = new RelayCommand(e => { Sell(); }, a => true);

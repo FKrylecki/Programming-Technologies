@@ -5,12 +5,10 @@ namespace Data.CodeImplementation
 {
     internal class DataContext : DbContext, IDataContext
     {
-        private readonly string _connectionString;
-        private const string defaultConnectionString = "Data Source = (localdb) Local;Initial Catalog = PTLabdb; Integrated Security = True";
-
+        private readonly string? _connectionString;
         public DataContext(string? connectionString = null)
         {
-            this._connectionString = connectionString ?? defaultConnectionString;
+            this._connectionString = connectionString;
         }
 
         // ------------------------------------------------------------------------------

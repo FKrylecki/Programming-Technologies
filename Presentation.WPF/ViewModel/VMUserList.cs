@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using Presentation.WPF.Model.API;
-using Presentation.WPF.Model.CodeImplementation;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Diagnostics;
-using System.Xml.Linq;
 using System.Windows.Input;
 
 namespace Presentation.WPF.ViewModel
@@ -31,16 +24,16 @@ namespace Presentation.WPF.ViewModel
 
         public VMUserList()
         {
-            imodel = new ModelDefault();
+            imodel = IModel.CreateNewModel();
             UserVM = new ObservableCollection<VMUsers>();
             AddCommand = new RelayCommand(e => { Add(); }, a => true);
             DeleteCommand = new RelayCommand(e => { Delete(); }, a => true);
             RefreshCommand = new RelayCommand(e => { GetUsers(); }, a => true);
         }
 
-        public VMUserList(IModel? model = default(ModelDefault))
+        public VMUserList(IModel? model)
         {
-            imodel = model ?? new ModelDefault();
+            imodel = model ?? IModel.CreateNewModel();
             UserVM = new ObservableCollection<VMUsers>();
             AddCommand = new RelayCommand(e => { Add(); }, a => true);
             DeleteCommand = new RelayCommand(e => { Delete(); }, a => true);

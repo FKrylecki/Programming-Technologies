@@ -1,12 +1,5 @@
-﻿using Data;
-using Presentation.WPF.Model.CodeImplementation;
-using Presentation.WPF.Model.API;
-using System;
-using System.Collections.Generic;
+﻿using Presentation.WPF.Model.API;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Presentation.WPF.ViewModel
 {
@@ -22,12 +15,12 @@ namespace Presentation.WPF.ViewModel
 
         public VMStateList()
         {
-            imodel = imodel ?? new ModelDefault();
+            imodel = imodel ?? IModel.CreateNewModel();
             StateVM = new ObservableCollection<VMStates>();
         }
-        public VMStateList(IModel? model = default(ModelDefault))
+        public VMStateList(IModel? model)
         {
-            imodel = model ?? new ModelDefault();
+            imodel = model ?? IModel.CreateNewModel();
             StateVM = new ObservableCollection<VMStates>();
         }
         public ObservableCollection<VMStates> StateView

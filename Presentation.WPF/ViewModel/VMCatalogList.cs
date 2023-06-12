@@ -1,5 +1,4 @@
 ﻿using Presentation.WPF.Model.API;
-using Presentation.WPF.Model.CodeImplementation;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -23,16 +22,16 @@ namespace Presentation.WPF.ViewModel
 
         public VMCatalogList()
         {
-            imodel = new ModelDefault();
+            imodel = IModel.CreateNewModel();
             CatVM = new ObservableCollection<VMCatalogs>();
             AddCat = new RelayCommand(e => { Add(); }, a => true);
             DeleteCat = new RelayCommand(e => { Delete(); }, a => true);
             Refresh = new RelayCommand(e => { GetCatalogs(); }, a => true);
         }
 
-        public VMCatalogList(IModel? model = default(ModelDefault))
+        public VMCatalogList(IModel? model)
         {
-            imodel = model ?? new ModelDefault();
+            imodel = model ?? IModel.CreateNewModel();
             CatVM = new ObservableCollection<VMCatalogs>();
             AddCat = new RelayCommand(e => { Add(); }, a => true);
             DeleteCat = new RelayCommand(e => { Delete(); }, a => true);

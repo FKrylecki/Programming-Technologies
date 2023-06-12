@@ -1,5 +1,4 @@
 ﻿using Data.API;
-using Data.CodeImplementation;
 using System.Runtime.CompilerServices;
 
 
@@ -10,13 +9,17 @@ namespace Data.CodeImplementation
     public class DataRepository : IDataRepository
     {
         private FurnitureShopDataContext dataContext;
-        private readonly string _connectionString;
-        private const string defaultConnectionString = "Data Source = (localdb) Local;Initial Catalog = PTLabdb; Integrated Security = True";
-
         public DataRepository(string? customConnectionString = null)
         {
-            this._connectionString = customConnectionString ?? defaultConnectionString;
-            dataContext = new FurnitureShopDataContext(_connectionString);
+            if (customConnectionString != null)
+            {
+                dataContext = new FurnitureShopDataContext(customConnectionString);
+            }
+            else
+            {
+                dataContext = new FurnitureShopDataContext();
+            }
+            
         }
 
         //----------------------------------------------------------------------

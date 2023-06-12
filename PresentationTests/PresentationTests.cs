@@ -1,5 +1,4 @@
-﻿using Presentation.WPF.Model.API;
-using IModel = Presentation.WPF.Model.API.IModel;
+﻿using IModel = Presentation.WPF.Model.API.IModel;
 
 namespace PresentationTests
 {

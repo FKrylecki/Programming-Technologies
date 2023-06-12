@@ -37,9 +37,14 @@ namespace Data
     partial void Insertstate(state instance);
     partial void Updatestate(state instance);
     partial void Deletestate(state instance);
-    #endregion
-		
-		public FurnitureShopDataContext(string connection) : 
+        #endregion
+
+        public FurnitureShopDataContext()
+        {
+            OnCreated();
+        }
+
+        public FurnitureShopDataContext(string? connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();

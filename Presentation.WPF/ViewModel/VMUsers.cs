@@ -1,14 +1,4 @@
-﻿using Presentation.WPF.Model.API;
-using Presentation.WPF.Model.CodeImplementation;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
-
+﻿
 namespace Presentation.WPF.ViewModel
 {
     public class VMUsers : PropertyChange
