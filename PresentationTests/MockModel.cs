@@ -1,7 +1,5 @@
 ﻿using Presentation.WPF.Model.API;
 using Services.API;
-using System.Linq;
-using static Azure.Core.HttpHeader;
 
 namespace PresentationTests
 {
